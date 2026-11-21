@@ -676,6 +676,8 @@ button{touch-action:manipulation; -webkit-tap-highlight-color:transparent}
 .e2setrow input{flex:1; min-width:0; font:inherit; font-size:18px; font-weight:800; padding:8px 10px; border-radius:12px; border:2px solid var(--line); background:var(--paper); color:var(--ink)}
 .e2rm{border:0; background:none; font-size:20px} .e2setmsg{color:var(--warn); font-weight:800; min-height:1.2em}
 .e2micinfo{margin:0; text-align:center}
+.e2isle{position:relative} .e2isle.done,.e2stn.done{border-color:var(--good)}
+.e2isle.done::after,.e2stn.done::after{content:'✓'; position:absolute; top:6px; right:8px; width:28px; height:28px; border-radius:50%; background:var(--good); color:#fff; font-weight:800; font-size:17px; display:grid; place-items:center}
 /* E2: skaitau, rašau, burbulai, atminties kortelės */
 .e2main .e2art:not(.big){width:min(40vw,20vh,170px)}
 .e2main .e2opt .e2art,.e2main .e2card .e2art,.e2main .e2bubl .e2art{width:100%}
@@ -2613,7 +2615,7 @@ function pzRender(){
       ${(()=>{ const E=store.get('daug.en2',{}); const P=E.players||[]; if(!P.length) return '<span class="muted">Dar nėra žaidėjų.</span>'; return P.map(p=>{ const pr=(E.prog||{})[p.id]||{}; const med=pr.medals||{}; const m=Object.keys(med).filter(k=>med[k]).map(k=>k+' '+['','🥉','🥈','🥇'][med[k]]).join(', ')||'medalių dar nėra'; const weak=Object.entries(pr.words||{}).filter(([w,l])=>l===0).map(([w])=>w).slice(0,6).join(', '); return `<div class="mbar" style="grid-template-columns:1fr"><span><b>${String(p.name).replace(/</g,'&lt;')}</b> – ⭐ ${pr.stars||0} · ${m}${weak?'<br><span class="muted">Pakartoti: '+weak+'</span>':''}</span></div>`; }).join(''); })()}
       <label style="display:flex;gap:10px;align-items:center;justify-content:space-between;font-weight:700"><span>Kiek sekundžių laukti, kol vaikas prabils (tyla = užskaityta)</span><select id="pzEnSil" style="font:inherit;font-weight:800;padding:6px 10px;border-radius:12px;border:2px solid var(--line);background:var(--paper);color:var(--ink)">${[4,6,8,10].map(v=>`<option value="${v}" ${(((store.get('daug.en2',{}).set||{}).sil)||6)===v?'selected':''}>${v} s</option>`).join('')}</select></label>
       <label style="display:flex;gap:10px;align-items:center;font-weight:700"><input type="checkbox" id="pzEnNames" style="width:22px;height:22px" ${((store.get('daug.en2',{}).set||{}).names)!==false?'checked':''}> Olly balsu sako vaiko vardą</label>
-      <label style="display:flex;gap:10px;align-items:center;font-weight:700"><input type="checkbox" id="pzEnUnlock" style="width:22px;height:22px" ${((store.get('daug.en2',{}).set||{}).unlock)?'checked':''}> Atrakinti visas salas</label></div>
+      </div>
     <div style="display:flex;flex-direction:column;gap:6px"><span style="font-weight:800">Pažangos perkėlimas į kitą įrenginį</span>
       <span class="muted" style="font-size:14px">1) Šiame įrenginyje paspauskite „Kopijuoti kodą“ ir nusiųskite jį sau (žinute ar el. paštu). 2) Kitame įrenginyje įklijuokite kodą į laukelį ir paspauskite „Įkelti“. Perkeliama visa pažanga: žvaigždutės, kortelės, dėlionės, anglų kalbos žaidėjai.</span>
       <textarea id="pzCode" rows="3" style="font:13px ui-monospace,monospace;padding:8px;border-radius:12px;border:2px solid var(--line);background:var(--paper);color:var(--ink);width:100%;box-sizing:border-box" placeholder="Čia atsiras arba įklijuokite pažangos kodą"></textarea>
@@ -2625,8 +2627,7 @@ function pzRender(){
     sel=sel.includes(n)?sel.filter(x=>x!==n):[...sel,n].sort((x,y)=>x-y); if(!sel.length) return;
     S.filmMul=sel; saveS(); document.querySelectorAll('#pzMul .chip').forEach(c=>c.setAttribute('aria-pressed',sel.includes(+c.dataset.n))); };
   const enSet=f=>{ E2S.set=Object.assign(E2S.set||{},f); e2Save(); };
-  $('#pzEnSil').onchange=e=>enSet({sil:+e.target.value}); $('#pzEnNames').onchange=e=>enSet({names:e.target.checked}); $('#pzEnUnlock').onchange=e=>enSet({unlock:e.target.checked});
-  $('#pzCodeCopy').onclick=()=>{ const o={}; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith('daug.')) o[k]=localStorage.getItem(k); }
+  $('#pzEnSil').onchange=e=>enSet({sil:+e.target.value}); $('#pzEnNames').onchange=e=>enSet({names:e.target.checked});  $('#pzCodeCopy').onclick=()=>{ const o={}; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith('daug.')) o[k]=localStorage.getItem(k); }
     const code='VO1:'+btoa(unescape(encodeURIComponent(JSON.stringify(o)))); $('#pzCode').value=code; $('#pzCode').select();
     (navigator.clipboard?navigator.clipboard.writeText(code):Promise.reject()).then(()=>$('#pzCodeMsg').textContent='Nukopijuota ✓',()=>$('#pzCodeMsg').textContent='Pažymėta – nukopijuokite ranka'); };
   $('#pzCodeLoad').onclick=()=>{ const v=$('#pzCode').value.trim(); try{ if(!v.startsWith('VO1:')) throw 0; const o=JSON.parse(decodeURIComponent(escape(atob(v.slice(4)))));
@@ -4740,17 +4741,20 @@ $('#e2SetGo').onclick=()=>{ const list=E2_SET.filter(p=>p.name.trim()); if(!list
   if(E2.view==='play'&&E2.run){ e2PaintBar(); if(!e2Act().some(p=>p.id===E2.run.cur)){ e2Clear(); e2NextTurn(); } } else { e2RenderMap(); if(E2.view==='topic') e2RenderTopic(); e2PaintBar(); } };
 $('#e2SetClose').onclick=()=>{ if(!E2S.players.length) return; $('#e2SetupOv').hidden=true; };
 /* salų žemėlapis */
-function e2Unlocked(i){ const t=E2_T[i]; if(t.soon) return false; if(i===0||E2S.set.unlock||t.id==='jobs') return true;
-  let j=i-1; while(j>=0&&E2_T[j].soon) j--; if(j<0) return true; const prev=E2_T[j]; return E2S.players.some(p=>(e2Prog(p.id).medals[prev.id]||0)>0); }
+/* visos salos ir stotelės atviros; atliktos pažymimos varnele */
+function e2Unlocked(i){ return !E2_T[i].soon; }
+const e2StDone=(pid,tid,k)=>{ const s=e2Prog(pid).steps[tid]; return !!(s&&s[k]); };
+const e2IsleDone=(pid,tid)=>E2_ST.every(([k])=>e2StDone(pid,tid,k));
 function e2RenderMap(){
-  $('#e2Isles').innerHTML=E2_T.map((t,i)=>{ const un=e2Unlocked(i);
-    const meds=E2S.players.map(p=>{ const pr=e2Prog(p.id), m=pr.medals[t.id]||0, st=Object.keys(pr.steps[t.id]||{}).length; return `<span class="e2mini" style="--pc:${e2Col(p)}" title="${e2Esc(p.name)}">${e2Av(p.avatar)}<i>${m?['','🥉','🥈','🥇'][m]:st?st+'/6':''}</i></span>`; }).join('');
-    return `<button class="e2isle${un?'':' lock'}" data-t="${t.id}" ${un?'':'aria-disabled="true"'}><span class="e2isle-pic"><span>${t.e}</span></span><b>${t.en}</b><small>${t.lt}</small>${t.soon?'<em>Greitai</em>':un?`<span class="e2meds">${meds}</span>`:'<em>🔒 Gauk medalį ankstesnėje saloje</em>'}</button>`; }).join(''); }
+  $('#e2Isles').innerHTML=E2_T.map((t,i)=>{ const un=e2Unlocked(i), act=e2Act(), all=!t.soon&&act.length&&act.every(p=>e2IsleDone(p.id,t.id));
+    const meds=E2S.players.map(p=>{ const pr=e2Prog(p.id), m=pr.medals[t.id]||0, st=E2_ST.filter(([k])=>e2StDone(p.id,t.id,k)).length; return `<span class="e2mini" style="--pc:${e2Col(p)}" title="${e2Esc(p.name)}">${e2Av(p.avatar)}<i>${st>=E2_ST.length?(m?['','🥉','🥈','🥇'][m]:'')+'✓':m?['','🥉','🥈','🥇'][m]:st?st+'/6':''}</i></span>`; }).join('');
+    return `<button class="e2isle${un?'':' lock'}${all?' done':''}" data-t="${t.id}" ${un?'':'aria-disabled="true"'}><span class="e2isle-pic"><span>${t.e}</span></span><b>${t.en}</b><small>${t.lt}</small>${t.soon?'<em>Greitai</em>':un?`<span class="e2meds">${meds}</span>`:'<em>🔒 Gauk medalį ankstesnėje saloje</em>'}</button>`; }).join(''); }
 $('#e2Isles').onclick=e=>{ const b=e.target.closest('.e2isle'); if(!b||b.classList.contains('lock')) return; E2.topic=e2T(b.dataset.t); e2RenderTopic(); e2Show('topic'); };
 function e2RenderTopic(){ const t=E2.topic;
   $('#e2TopicHead').innerHTML=`<span class="e2isle-pic sm"><span>${t.e}</span></span><div><h2>${t.en}</h2><span class="muted">${t.lt}</span></div>`;
   $('#e2Stations').innerHTML=E2_ST.map(([k,l,ic,soon],i)=>{ const who=E2S.players.map(p=>{ const pr=e2Prog(p.id); const done=pr.steps[t.id]&&pr.steps[t.id][k]; const m=k==='test'?(pr.medals[t.id]||0):0; return done?`<span class="e2mini" style="--pc:${e2Col(p)}">${e2Av(p.avatar)}<i>${m?['','🥉','🥈','🥇'][m]:'✓'}</i></span>`:''; }).join('');
-    return `<button class="e2stn${soon?' lock':''}" data-k="${k}"><span class="e2stn-n">${i+1}</span><span class="e2stn-ic">${ic}</span><b>${l}</b>${soon?'<em>Greitai</em>':`<span class="e2meds">${who}</span>`}</button>`; }).join(''); }
+    const act=e2Act(), all=act.length&&act.every(p=>e2StDone(p.id,t.id,k));
+    return `<button class="e2stn${soon?' lock':''}${all?' done':''}" data-k="${k}"><span class="e2stn-n">${i+1}</span><span class="e2stn-ic">${ic}</span><b>${l}</b>${soon?'<em>Greitai</em>':`<span class="e2meds">${who}</span>`}</button>`; }).join(''); }
 $('#e2Stations').onclick=e=>{ const b=e.target.closest('.e2stn'); if(!b||b.classList.contains('lock')) return; e2Start(b.dataset.k); };
 $('#e2BackMap').onclick=()=>{ e2RenderMap(); e2Show('map'); };
 $('#e2Quit').onclick=()=>{ e2Clear(); E2.run=null; e2RenderTopic(); e2Show('topic'); };
