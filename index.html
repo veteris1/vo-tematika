@@ -676,6 +676,42 @@ button{touch-action:manipulation; -webkit-tap-highlight-color:transparent}
 .e2setrow input{flex:1; min-width:0; font:inherit; font-size:18px; font-weight:800; padding:8px 10px; border-radius:12px; border:2px solid var(--line); background:var(--paper); color:var(--ink)}
 .e2rm{border:0; background:none; font-size:20px} .e2setmsg{color:var(--warn); font-weight:800; min-height:1.2em}
 .e2micinfo{margin:0; text-align:center}
+/* E2: skaitau, rašau, burbulai, atminties kortelės */
+.e2main .e2art:not(.big){width:min(40vw,20vh,170px)}
+.e2main .e2opt .e2art,.e2main .e2card .e2art,.e2main .e2bubl .e2art{width:100%}
+.e2opts.three{grid-template-columns:repeat(3,minmax(0,1fr)); width:min(100%,62vh,560px)}
+.e2rd b{font-size:clamp(30px,6vh,48px); background:var(--card); border:3px dashed var(--line); border-radius:18px; padding:4px 18px; display:inline-block}
+.e2wopts{display:flex; flex-direction:column; gap:8px; width:min(100%,380px)}
+.e2wopt{font-family:var(--display); font-size:clamp(22px,4vh,30px); font-weight:800; border:4px solid var(--line); border-radius:18px; padding:8px 12px; background:var(--card); color:var(--ink)}
+.e2wopt.ok{border-color:var(--good); background:var(--good-bg)} .e2wopt.bad{border-color:var(--warn); opacity:.45}
+.e2slots{display:flex; flex-wrap:wrap; gap:6px; justify-content:center}
+.e2slot{width:clamp(30px,9vw,46px); height:clamp(40px,7vh,54px); border-bottom:4px solid var(--ink-soft); display:grid; place-items:center; font-family:var(--display); font-size:clamp(26px,5vh,36px); font-weight:800; color:var(--ink)}
+.e2slot.ghost{color:var(--ink-soft); opacity:.35} .e2slot.ok{color:var(--good); border-color:var(--good)} .e2slot.gap{border-color:var(--red); background:var(--warn-bg); border-radius:8px 8px 0 0}
+.e2tiles{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; max-width:560px}
+.e2tile{min-width:clamp(40px,11vw,54px); height:clamp(44px,7.5vh,58px); padding:0 10px; border-radius:14px; border:3px solid var(--line); border-bottom-width:6px; background:var(--card); color:var(--ink); font-family:var(--display); font-size:clamp(22px,4.5vh,32px); font-weight:800}
+.e2tile.used{visibility:hidden} .e2tile.ok{border-color:var(--good); background:var(--good-bg)} .e2tile.bad{opacity:.4} .e2tile.hint{border-color:var(--good); animation:e2pulse 1s ease-in-out infinite}
+.e2wt{font-size:clamp(18px,3.4vh,24px)}
+.shake{animation:e2shake .4s}
+@keyframes e2shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+@keyframes e2pulse{50%{transform:scale(1.1)}}
+.e2sent{min-height:52px; width:min(100%,560px); display:flex; flex-wrap:wrap; gap:6px; justify-content:center; align-items:center; border-bottom:3px dashed var(--line); padding:4px}
+.e2sent span{font-family:var(--display); font-size:clamp(20px,3.6vh,26px); font-weight:800; background:var(--good-bg); border-radius:10px; padding:2px 8px; animation:e2pop .3s}
+.e2memo{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; width:min(100%,64vh,560px)}
+.e2card{position:relative; aspect-ratio:3/4; border:0; padding:0; background:none; perspective:600px}
+.e2card>span{position:absolute; inset:0; border-radius:14px; display:grid; place-items:center; backface-visibility:hidden; -webkit-backface-visibility:hidden; transition:transform .35s; overflow:hidden}
+.e2cb{background:linear-gradient(135deg,#8E6BCB,#7B57B8); color:#fff; font-family:var(--display); font-size:34px; font-weight:800; border:3px solid #6A4AA6}
+.e2cf{background:var(--card); border:3px solid var(--line); transform:rotateY(180deg); padding:4px}
+.e2card.open .e2cb{transform:rotateY(180deg)} .e2card.open .e2cf{transform:rotateY(360deg)}
+.e2card.ok .e2cf{border-color:var(--good); background:var(--good-bg)}
+.e2cf .e2art{border:0; background:none} .e2mw{font-family:var(--display); font-weight:800; font-size:clamp(14px,2.6vh,22px); word-break:break-word; text-align:center; color:var(--ink)}
+.e2cf .e2emo span{font-size:clamp(30px,6vh,56px)} .e2cf .e2emo span.e2two{font-size:clamp(22px,4vh,40px)}
+.e2bubs{position:relative; width:min(100%,560px); height:min(48vh,360px); border-radius:22px; overflow:hidden; background:linear-gradient(180deg,#D8F3FF,#7FD3F0); border:3px solid var(--line)}
+.e2bubl{position:absolute; top:100%; width:23%; aspect-ratio:1; border-radius:50%!important; padding:2%!important; border:3px solid rgba(255,255,255,.95)!important; background:radial-gradient(circle at 30% 28%,rgba(255,255,255,.95) 0 9%,rgba(255,255,255,.35) 10% 60%,rgba(160,220,255,.5) 100%)!important; animation:e2rise 8s linear infinite}
+.e2bubl .e2art{border-radius:50%; background:transparent; border:0}
+.e2bubl .e2emo span,.e2bubl .e2emo span.e2two{font-size:clamp(34px,min(8vh,12vw),64px)}
+.e2bubl.ok{animation-play-state:paused; border-color:var(--good)!important; box-shadow:0 0 0 5px var(--good)} .e2bubl.pop{transform:scale(1.4); opacity:0; transition:transform .4s,opacity .4s} .e2bubl.bad{opacity:.35}
+@keyframes e2rise{0%{top:100%; margin-left:0}25%{margin-left:3%}50%{margin-left:-3%}75%{margin-left:3%}100%{top:-26%; margin-left:0}}
+@media (prefers-reduced-motion:reduce){ .e2bubl{animation:none; top:30%} .e2bubl:nth-child(2n){top:58%} .e2tile.hint{animation:none} }
 @media (prefers-reduced-motion:reduce){ .e2live i,.e2turn-in{animation:none} }
 /* anglų kalba */
 @media (max-width:520px){ .subjects{gap:8px} .subj{flex-direction:column!important; gap:2px!important; padding:8px 4px!important; font-size:15px; line-height:1.15; text-align:center} .subj svg{width:28px!important; height:28px!important} }
@@ -4537,7 +4573,10 @@ const EN_PICS={
 };
 /* ---------- ANGLŲ KALBA 2.0 – E1: žaidėjai, Olly, salos, automatinis kalbėjimas ---------- */
 const EN_ALT={policeman:['policemen','police officer','police'],fireman:['firemen','firefighter'],postman:['postmen','mailman'],zookeeper:['zookeepers'],housewife:['housewives'],doctor:['doctors','dr'],farmer:['farmers','former'],teacher:['teachers','teach her'],pupil:['pupils','people','purple'],pilot:['pilots'],
-  hello:['hi','hallo'],goodbye:['bye','good bye','bye bye'],'thank you':['thanks','thank'],'good night':['goodnight'],'good morning':['morning'],grey:['gray'],colour:['color']};
+  hello:['hi','hallo'],goodbye:['bye','good bye','bye bye'],'thank you':['thanks','thank'],'good night':['goodnight'],'good morning':['morning'],grey:['gray'],colour:['color'],
+  mouse:['mouth','mice','mouse'],horse:['house','horses'],cat:['kitty','cats'],dog:['doggy','dogs'],rabbit:['bunny','rabbits'],
+  mum:['mom','mommy','mummy','mam'],dad:['daddy'],grandma:['granny','grandmother'],grandpa:['grandfather','granddad'],
+  ruler:['rula','rular','roller'],rubber:['eraser'],bag:['backpack','schoolbag']};
 const enPic=(w,cls='')=>`<svg class="${cls}" viewBox="0 0 200 200" role="img" aria-label="${w}">${EN_PICS[w]()}</svg>`;
 const enShuffle=a=>{ a=[...a]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
 /* balsas ir mikrofonas */
@@ -4587,9 +4626,21 @@ const E2_T=[
   sents:e2Sn([['I am eight.','Man aštuoneri metai.','🎂'],['One, two, three!','Vienas, du, trys!','n:3'],['How old are you?','Kiek tau metų?','🎈'],['Three apples.','Trys obuoliai.','🍎🍎🍎']]),
   talk:[{q:'How old are you?',lt:'Kiek tau metų?',okTopic:1,m:'I am eight.'},{q:'How many apples?',lt:'Kiek obuolių?',count:1,m:'{w} apples.'},{q:'Count to five!',lt:'Suskaičiuok iki penkių!',ok:['one','two','three','four','five'],m:'One, two, three, four, five.'}],
   ask:'What number is it?', askLt:'Koks tai skaičius?', yn:w=>`Is it ${w}?`},
- {id:'animals',en:'Animals',lt:'Gyvūnai',e:'🐾',soon:1},
- {id:'family',en:'Family',lt:'Šeima',e:'👪',soon:1},
- {id:'school',en:'School',lt:'Mokykla',e:'🎒',soon:1},
+ {id:'animals',en:'Animals',lt:'Gyvūnai',e:'🐾',
+  words:e2W([['cat','katė','🐱'],['dog','šuo','🐶'],['bird','paukštis','🐦'],['fish','žuvis','🐟'],['horse','arklys','🐴'],['cow','karvė','🐮'],['pig','kiaulė','🐷'],['rabbit','triušis','🐰'],['mouse','pelė','🐭'],['frog','varlė','🐸']]),
+  sents:e2Sn([['It is a cat.','Tai katė.','🐱'],['I have got a dog.','Aš turiu šunį.','🧒🐶'],['The frog is green.','Varlė žalia.','🐸💚'],['Is it a horse? Yes, it is.','Ar tai arklys? Taip.','🐴👍'],['Is it a pig? No, it is not.','Ar tai kiaulė? Ne.','🐮👎'],['I like rabbits.','Man patinka triušiai.','🐰💖']]),
+  talk:[{q:'What is it?',lt:'Kas tai?',item:1,m:'It is a {w}.'},{q:'What animal do you like?',lt:'Koks gyvūnas tau patinka?',okTopic:1,m:'I like cats.'},{q:'Have you got a pet?',lt:'Ar turi augintinį?',ok:['yes','no','cat','dog','fish','bird','rabbit','mouse'],m:'Yes, I have got a dog.'}],
+  ask:'What is it?', askLt:'Kas tai? Pasakyk angliškai', yn:w=>`Is it a ${w}?`},
+ {id:'family',en:'Family',lt:'Šeima',e:'👪',
+  words:e2W([['mum','mama','👩'],['dad','tėtis','👨'],['sister','sesuo','👧'],['brother','brolis','👦'],['grandma','močiutė','👵'],['grandpa','senelis','👴'],['baby','kūdikis','👶'],['family','šeima','👨‍👩‍👧‍👦'],['friend','draugas','🧑‍🤝‍🧑']]),
+  sents:e2Sn([['This is my mum.','Čia mano mama.','👩💖'],['I love my family.','Aš myliu savo šeimą.','👨‍👩‍👧❤️'],['He is my brother.','Jis mano brolis.','👦👈'],['She is my sister.','Ji mano sesuo.','👧👈'],['This is my grandma.','Čia mano močiutė.','👵🌷']]),
+  talk:[{q:'Who is it?',lt:'Kas tai?',item:1,m:'It is my {w}.'},{q:'Have you got a sister?',lt:'Ar turi sesę?',ok:['yes','no','sister'],m:'Yes, I have got a sister.'},{q:'Who do you love?',lt:'Ką tu myli?',okTopic:1,m:'I love my mum.'}],
+  ask:'Who is it?', askLt:'Kas tai? Pasakyk angliškai', yn:w=>`Is it ${['baby','friend','family'].includes(w)?'a':'my'} ${w}?`},
+ {id:'school',en:'School',lt:'Mokykla',e:'🎒',
+  words:e2W([['book','knyga','📕'],['pen','tušinukas','🖊️'],['pencil','pieštukas','✏️'],['bag','kuprinė','🎒'],['ruler','liniuotė','📏'],['rubber','trintukas','s:rubber'],['desk','suolas','s:desk'],['chair','kėdė','🪑'],['teacher','mokytoja','job:teacher'],['pupil','mokinys','job:pupil']]),
+  sents:e2Sn([['I have got a pencil.','Aš turiu pieštuką.','🧒✏️'],['This is my bag.','Čia mano kuprinė.','🎒👈'],['Open your book.','Atsiversk knygą.','📖'],['Sit down, please.','Atsisėsk, prašau.','🪑🙏'],['Stand up.','Atsistok.','🧍⬆️']]),
+  talk:[{q:'What is it?',lt:'Kas tai?',item:1,m:'It is a {w}.'},{q:'Have you got a pencil?',lt:'Ar turi pieštuką?',ok:['yes','no','pencil'],m:'Yes, I have got a pencil.'},{q:'What is in your bag?',lt:'Kas tavo kuprinėje?',okTopic:1,m:'A book and a pen.'}],
+  ask:'What is it?', askLt:'Kas tai? Pasakyk angliškai', yn:w=>`Is it a ${w}?`},
  {id:'toys',en:'Toys',lt:'Žaislai',e:'🧸',soon:1},
  {id:'food',en:'Food',lt:'Maistas',e:'🍎',soon:1},
  {id:'body',en:'Body',lt:'Kūnas',e:'✋',soon:1},
@@ -4600,7 +4651,7 @@ const E2_T=[
   ask:'Who is it?', askLt:'Kas tai?', yn:w=>`Is it a ${w}?`}
 ];
 const e2T=id=>E2_T.find(t=>t.id===id);
-const E2_ST=[['learn','Mokausi','📖'],['listen','Klausau','👂'],['read','Skaitau','🔤',1],['write','Rašau','✏️',1],['speak','Kalbu','🗣️'],['test','Išbandymas','🏆']];
+const E2_ST=[['learn','Mokausi','📖'],['listen','Klausau','👂'],['read','Skaitau','🔤'],['write','Rašau','✏️'],['speak','Kalbu','🗣️'],['test','Išbandymas','🏆']];
 /* paveikslėliai */
 function e2Art(p,cls=''){ p=p||'';
   if(p.startsWith('job:')) return `<div class="e2art ${cls}">${enPic(p.slice(4))}</div>`;
@@ -4608,7 +4659,12 @@ function e2Art(p,cls=''){ p=p||'';
   if(p.startsWith('n:')){ const n=+p.slice(2), cols=['#FF6FA5','#FFD23F','#3A86FF','#2DBE60','#FF8C1A']; let d='';
     for(let i=0;i<n;i++){ const row=i<5?0:1, col=i%5, cnt=row?n-5:Math.min(n,5), x=100+(col-(cnt-1)/2)*30; d+=`<circle cx="${x}" cy="${row?178:146}" r="12" fill="${cols[i%5]}"/>`; }
     return `<div class="e2art ${cls}"><svg viewBox="0 0 200 200" aria-hidden="true"><text x="100" y="${n>5?108:118}" text-anchor="middle" font-family="inherit" font-weight="800" font-size="${n>5?92:104}" fill="#7C4DFF">${n}</text>${d}</svg></div>`; }
-  return `<div class="e2art e2emo ${cls}"><span${p.length>2?' class="e2two"':''}>${p}</span></div>`; }
+  if(p.startsWith('s:')) return `<div class="e2art ${cls}"><svg viewBox="0 0 200 200" aria-hidden="true">${E2_SVG[p.slice(2)]||''}</svg></div>`;
+  let n=p.length/2; try{ if(window.Intl&&Intl.Segmenter) n=[...new Intl.Segmenter().segment(p)].length; }catch(e){}
+  return `<div class="e2art e2emo ${cls}"><span${n>1?' class="e2two"':''}>${p}</span></div>`; }
+const E2_SVG={
+ rubber:`<g transform="rotate(-18 100 100)"><rect x="34" y="72" width="132" height="62" rx="14" fill="#FF7EB6"/><rect x="104" y="72" width="62" height="62" rx="14" fill="#3A86FF"/><rect x="104" y="72" width="16" height="62" fill="#3A86FF"/><rect x="34" y="122" width="132" height="12" rx="6" fill="#000" opacity=".12"/><path d="M48 84h40" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".55"/></g><path d="M40 168q20-8 40 0t40 0" stroke="#C9C2D6" stroke-width="5" fill="none" stroke-linecap="round"/>`,
+ desk:`<rect x="22" y="70" width="156" height="20" rx="6" fill="#C8834A"/><rect x="22" y="86" width="156" height="6" fill="#9C5F2E"/><rect x="34" y="92" width="14" height="82" rx="4" fill="#9C5F2E"/><rect x="152" y="92" width="14" height="82" rx="4" fill="#9C5F2E"/><rect x="60" y="92" width="80" height="32" rx="4" fill="#B5733E"/><rect x="92" y="104" width="16" height="6" rx="3" fill="#FFD23F"/><rect x="50" y="52" width="44" height="18" rx="3" fill="#3A86FF"/><rect x="54" y="40" width="40" height="12" rx="3" fill="#E63946"/><path d="M120 66l40-14" stroke="#FFD23F" stroke-width="7" stroke-linecap="round"/>`};
 /* avatarai */
 const E2_AV=['fox','rabbit','owl','cat','dog','bear','frog','hedgehog'], E2_AVLT={fox:'Lapė',rabbit:'Zuikis',owl:'Pelėda',cat:'Katė',dog:'Šuo',bear:'Meška',frog:'Varlė',hedgehog:'Ežiukas'};
 const E2_COL=['#E94B97','#3A86FF','#22A559','#FF8C1A'];
@@ -4687,7 +4743,7 @@ function e2Unlocked(i){ const t=E2_T[i]; if(t.soon) return false; if(i===0||E2S.
   let j=i-1; while(j>=0&&E2_T[j].soon) j--; if(j<0) return true; const prev=E2_T[j]; return E2S.players.some(p=>(e2Prog(p.id).medals[prev.id]||0)>0); }
 function e2RenderMap(){
   $('#e2Isles').innerHTML=E2_T.map((t,i)=>{ const un=e2Unlocked(i);
-    const meds=E2S.players.map(p=>{ const pr=e2Prog(p.id), m=pr.medals[t.id]||0, st=Object.keys(pr.steps[t.id]||{}).length; return `<span class="e2mini" style="--pc:${e2Col(p)}" title="${e2Esc(p.name)}">${e2Av(p.avatar)}<i>${m?['','🥉','🥈','🥇'][m]:st?st+'/4':''}</i></span>`; }).join('');
+    const meds=E2S.players.map(p=>{ const pr=e2Prog(p.id), m=pr.medals[t.id]||0, st=Object.keys(pr.steps[t.id]||{}).length; return `<span class="e2mini" style="--pc:${e2Col(p)}" title="${e2Esc(p.name)}">${e2Av(p.avatar)}<i>${m?['','🥉','🥈','🥇'][m]:st?st+'/6':''}</i></span>`; }).join('');
     return `<button class="e2isle${un?'':' lock'}" data-t="${t.id}" ${un?'':'aria-disabled="true"'}><span class="e2isle-pic"><span>${t.e}</span></span><b>${t.en}</b><small>${t.lt}</small>${t.soon?'<em>Greitai</em>':un?`<span class="e2meds">${meds}</span>`:'<em>🔒 Gauk medalį ankstesnėje saloje</em>'}</button>`; }).join(''); }
 $('#e2Isles').onclick=e=>{ const b=e.target.closest('.e2isle'); if(!b||b.classList.contains('lock')) return; E2.topic=e2T(b.dataset.t); e2RenderTopic(); e2Show('topic'); };
 function e2RenderTopic(){ const t=E2.topic;
@@ -4700,10 +4756,18 @@ $('#e2Quit').onclick=()=>{ e2Clear(); E2.run=null; e2RenderTopic(); e2Show('topi
 /* ---------- UŽDUOTYS ---------- */
 function e2Tasks(t,st){ const W=enShuffle(t.words), S=enShuffle(t.sents), K=enShuffle(t.talk||[]); const w=i=>W[i%W.length], s=i=>S[i%S.length], k=i=>K[i%K.length]; const o=[];
   if(st==='learn'){ for(let i=0;i<4;i++) o.push({k:'learn',it:w(i)}); for(let i=0;i<2;i++) o.push({k:'learnS',it:s(i)}); }
-  if(st==='listen') for(let i=0;i<6;i++) o.push({k:i%3===2?'yesno':'pick',it:w(i)});
+  if(st==='listen'){ const ks=enShuffle(['pick','pick','bubble','bubble','yesno','yesno']); for(let i=0;i<6;i++) o.push({k:ks[i],it:w(i)}); }
+  const SP=enShuffle(t.words.filter(e2Spellable)), SO=enShuffle(t.sents.filter(e2Orderable)), sp=i=>SP.length?SP[i%SP.length]:w(i);
+  if(st==='read'){ o.push({k:'rpic',it:w(0)},{k:'rword',it:w(1)},{k:'rpic',it:w(2)},{k:'rword',it:w(3)},{k:'rsent',it:s(0)},{k:'memo',it:{memo:1}}); }
+  if(st==='write'){ o.push({k:'spell',it:sp(0),ghost:1},{k:'miss',it:sp(1)},{k:'spell',it:sp(2)},{k:'miss',it:sp(3)},{k:'spell',it:sp(4)}); o.push(SO.length?{k:'order',it:SO[0]}:{k:'miss',it:sp(5)}); }
   if(st==='speak'){ o.push({k:'say',it:w(0)},{k:'say',it:w(1)},{k:'say',it:w(2)},{k:'rep',it:s(0)},{k:'rep',it:s(1)}); if(K.length) o.push({k:'talk',it:k(0)}); }
-  if(st==='test') ['pick','say','yesno','pick','say','talk','pick','say','yesno','talk'].forEach((x,i)=>o.push(x==='talk'?(K.length?{k:'talk',it:k(i)}:{k:'say',it:w(i+5)}):{k:x,it:w(i)}));
+  if(st==='test') ['pick','say','rword','yesno','spell','talk','rpic','say','miss','talk'].forEach((x,i)=>o.push(x==='talk'?(K.length?{k:'talk',it:k(i)}:{k:'say',it:w(i+5)}):{k:x,it:(x==='spell'||x==='miss')?sp(i):w(i)}));
   return o; }
+if(/[?&]e2dbg/.test(location.search)) window.E2DBG={E2,E2_T,E2S,e2MatchW};
+const e2Spellable=x=>/^[a-z]{2,9}$/.test(x.w);
+const e2Toks=s=>s.split(' ').filter(Boolean);
+const e2Orderable=x=>{ const n=e2Toks(x.s).length; return n>=3&&n<=6; };
+const e2Clean=s=>s.toLowerCase().replace(/[^a-z']/g,'');
 const e2NewPer=st=>({q:e2Tasks(E2.topic,st),i:0,ok:0,sil:0,n:0});
 function e2Start(st){ if(!e2Act().length) return e2OpenSetup(); e2Clear(); const per={}; e2Act().forEach(p=>per[p.id]=e2NewPer(st)); E2.run={st,per,cur:null}; e2Show('play'); e2NextTurn(); }
 function e2NextTurn(){ const R=E2.run; if(!R) return; const act=e2Act(); if(!act.length){ E2.run=null; e2RenderTopic(); return e2Show('topic'); }
@@ -4718,7 +4782,7 @@ function e2Name(){ const P=e2P(E2.run.cur); return P&&E2S.set.names&&e2Act().len
 const e2Q=q=>{ const n=e2Name(); return n?n+q[0].toLowerCase()+q.slice(1):q; };
 function e2Bubble(en,lt,mood){ $('#e2Olly').innerHTML=e2Olly(mood); $('#e2En').textContent=en; $('#e2Lt').textContent=lt||''; }
 function e2Status(t,cls){ const s=$('#e2Status'); s.className='e2status'+(cls?' '+cls:''); s.textContent=t||''; }
-function e2Task(){ const R=E2.run, pp=R.per[R.cur], task=pp.q[pp.i], t=E2.topic, it=task.it, tok=++E2.tok; R.tries=0; R.task=task; R.answered=false; R.check=null;
+function e2Task(){ const R=E2.run, pp=R.per[R.cur], task=pp.q[pp.i], t=E2.topic, it=task.it, tok=++E2.tok; R.tries=0; R.task=task; R.answered=false; R.check=null; R.read=0; R.memo=R.spell=R.ord=null; R.prompt='';
   e2Status(''); $('#e2Prog').textContent=`${pp.i+1} / ${pp.q.length}`; $('#e2Main').className='e2main k-'+task.k; $('#e2Skip').hidden=false;
   $('#e2Mic').hidden=true; $('#e2Live').hidden=true;
   const pool=t.words.map(x=>x.w); const after=fn=>{ R.prompt=fn; return e2Speak(fn); }; const after2=fn=>after(fn).then(()=>{ if(tok===E2.tok) return new Promise(r=>setTimeout(r,250)); return Promise.reject(); });
@@ -4745,6 +4809,37 @@ function e2Task(){ const R=E2.run, pp=R.per[R.cur], task=pp.q[pp.i], t=E2.topic,
     const q=t.yn?t.yn(asked):`Is it “${asked}”?`; e2Bubble(e2Q(q),'Taip ar ne?','think');
     $('#e2Main').innerHTML=`${e2Art(it.p,'big')}<div class="e2yn"><button class="e2ynb yes" data-v="1">YES 👍</button><button class="e2ynb no" data-v="0">NO 👎</button></div>`;
     after2(e2Q(q)).catch(()=>{}); }
+  else if(task.k==='bubble'){ const opts=enShuffle([it,...enShuffle(t.words.filter(x=>x.w!==it.w)).slice(0,3)]); R.say=it.w;
+    e2Bubble(e2Q('Pop the bubble!'),'Paklausyk ir sprogdink tą burbulą','happy');
+    $('#e2Main').innerHTML=`<div class="e2bubs">${opts.map((o,i)=>`<button class="e2opt e2bubl" data-w="${e2Esc(o.w)}" style="left:${4+i*24}%;animation-duration:${7+((i*3+pp.i)%4)*1.3}s;animation-delay:-${(i*2.1+pp.i*.7)%6}s">${e2Art(o.p)}</button>`).join('')}</div>`;
+    after2(e2Q(it.w)).catch(()=>{}); }
+  else if(task.k==='rpic'||task.k==='rsent'){ const key=it.w||it.s, src=task.k==='rsent'?t.sents:t.words; const seen=new Set([it.p]);
+    const others=enShuffle(src.filter(x=>(x.w||x.s)!==key)).filter(x=>!seen.has(x.p)&&seen.add(x.p)).slice(0,task.k==='rsent'?2:3);
+    const opts=enShuffle([it,...others]); R.say=key; R.read=1; R.prompt='Read and find the picture!';
+    e2Bubble(e2Q('Read and find the picture!'),'Perskaityk ir paliesk paveikslėlį','think');
+    $('#e2Main').innerHTML=`<div class="e2word e2rd"><b>${e2Esc(key)}</b></div><div class="e2opts${opts.length===3?' three':''}">${opts.map(o=>`<button class="e2opt" data-w="${e2Esc(o.w||o.s)}">${e2Art(o.p)}</button>`).join('')}</div>`;
+    e2Speak(e2Q('Read and find the picture!')); }
+  else if(task.k==='rword'){ const opts=enShuffle([it,...enShuffle(t.words.filter(x=>x.w!==it.w)).slice(0,2)]); R.say=it.w; R.read=1; R.prompt='What is it? Read and tap the word!';
+    e2Bubble(e2Q('Read and tap the word!'),'Kuris žodis tinka paveikslėliui?','think');
+    $('#e2Main').innerHTML=`${e2Art(it.p,'big')}<div class="e2wopts">${opts.map(o=>`<button class="e2wopt" data-w="${e2Esc(o.w)}">${e2Esc(o.w)}</button>`).join('')}</div>`;
+    e2Speak(e2Q('Read and tap the word!')); }
+  else if(task.k==='memo'){ const P=enShuffle(t.words).slice(0,4); R.say=''; R.memo={left:4,miss:0,open:[],busy:false}; R.prompt='Find the pairs!';
+    const cards=enShuffle([...P.map(x=>({w:x.w,f:e2Art(x.p)})),...P.map(x=>({w:x.w,f:`<span class="e2mw">${e2Esc(x.w)}</span>`}))]);
+    e2Bubble(e2Q('Find the pairs!'),'Atminties kortelės: rask paveikslėlį ir jo žodį','happy');
+    $('#e2Main').innerHTML=`<div class="e2memo">${cards.map(c=>`<button class="e2card" data-w="${e2Esc(c.w)}" aria-label="Kortelė"><span class="e2cb">?</span><span class="e2cf">${c.f}</span></button>`).join('')}</div>`;
+    e2Speak(e2Q('Find the pairs!')); }
+  else if(task.k==='spell'||task.k==='miss'){ const word=it.w; R.say=word; R.spell={pos:0,miss:0};
+    if(task.k==='spell'){ const tiles=enShuffle(word.split('').map((c,i)=>({c,i}))); R.prompt=`Spell the word: ${word}`;
+      e2Bubble(e2Q('Spell the word!'),'Sudėk žodį iš raidžių','think');
+      $('#e2Main').innerHTML=`${e2Art(it.p)}<div class="e2word"><span>${e2Esc(it.lt)}</span></div><div class="e2slots">${word.split('').map((c,i)=>`<span class="e2slot${task.ghost?' ghost':''}" data-i="${i}">${task.ghost?c:''}</span>`).join('')}</div><div class="e2tiles">${tiles.map(x=>`<button class="e2tile" data-c="${x.c}">${x.c}</button>`).join('')}</div>`; }
+    else { const idx=Math.floor(Math.random()*word.length), abc='abcdefghijklmnoprstuwy'.split('').filter(c=>c!==word[idx]); const opts=enShuffle([word[idx],...enShuffle(abc).slice(0,2)]); R.missI=idx; R.prompt=`Which letter is missing? ${word}`;
+      e2Bubble(e2Q('Which letter is missing?'),'Kurios raidės trūksta?','think');
+      $('#e2Main').innerHTML=`${e2Art(it.p)}<div class="e2slots">${word.split('').map((c,i)=>`<span class="e2slot${i===idx?' gap':' fix'}">${i===idx?'':c}</span>`).join('')}</div><div class="e2tiles">${opts.map(c=>`<button class="e2tile" data-c="${c}">${c}</button>`).join('')}</div>`; }
+    e2Speak(e2Q(task.k==='spell'?'Spell the word!':'Which letter is missing?')).then(()=>{ if(tok===E2.tok) e2Speak(word); }); }
+  else if(task.k==='order'){ const toks=e2Toks(it.s), sh=enShuffle(toks.map((x,i)=>({x,i}))); R.say=it.s; R.ord={toks,pos:0,miss:0}; R.prompt=it.s;
+    e2Bubble(e2Q('Put the words in order!'),'Sudėliok sakinį','think');
+    $('#e2Main').innerHTML=`${e2Art(it.p)}<div class="e2word"><span>${e2Esc(it.lt)}</span></div><div class="e2sent" id="e2Sent"></div><div class="e2tiles">${sh.map(o=>`<button class="e2tile e2wt" data-x="${e2Esc(o.x)}">${e2Esc(o.x)}</button>`).join('')}</div>`;
+    e2Speak(e2Q('Put the words in order!')); }
 }
 $('#e2Rep').onclick=()=>{ const R=E2.run; if(!R||!R.task||R.answered) return; const k=R.task.k, voice=['learn','learnS','say','rep','talk'].includes(k); const tok=++E2.tok; enStopListen(); $('#e2Live').hidden=true;
   e2Speak(R.prompt||R.say).then(()=>{ if(voice&&tok===E2.tok&&R===E2.run&&!R.answered&&R.check) setTimeout(()=>{ if(tok===E2.tok) e2VoiceTask(R.check); },250); }); };
@@ -4786,17 +4881,42 @@ function e2VoiceTask(check,o={}){ const R=E2.run; if(!R) return; R.check=check; 
 /* rezultatas */
 function e2Done(res,h){ const R=E2.run; if(!R||R.answered) return; R.answered=true; enStopListen(); const pp=R.per[R.cur], it=R.task.it, pr=e2Prog(R.cur), key=it.w||it.s||it.q;
   $('#e2Skip').hidden=true; let wait=1500;
-  if(res==='ok'){ pp.ok++; pr.stars++; S.stars+=1; saveS(); paintStars(); pr.words[key]=Math.min(3,(pr.words[key]||0)+1); beep(true); e2Bubble(rnd(['Super!','Great!','Well done!','Yes!','Excellent!']),'Puiku!','wow'); e2Status(h?`Išgirdau: „${h}“ ⭐`:'Teisingai! ⭐','ok'); }
+  if(res==='ok'){ pp.ok++; pr.stars++; S.stars+=1; saveS(); paintStars(); if(key) pr.words[key]=Math.min(3,(pr.words[key]||0)+1); beep(true); e2Bubble(rnd(['Super!','Great!','Well done!','Yes!','Excellent!']),'Puiku!','wow'); e2Status(h?`Išgirdau: „${h}“ ⭐`:'Teisingai! ⭐','ok'); }
   else if(res==='silent'||res==='nomic'){ pp.ok++; pp.sil++; e2Bubble('Listen!','Klausyk ir pakartok','happy'); e2Status(res==='silent'?'Neišgirdau – užskaitau. Klausyk:':'Atsakymas:','wait'); wait=2400; e2Speak(R.say); e2Reveal(); }
-  else if(res==='wrong'){ pr.words[key]=Math.max(0,(pr.words[key]||0)-1); beep(false); e2Bubble('Listen!','Teisingai sakoma taip','think'); e2Status(`Teisingai: ${R.say}`,'bad'); wait=2600; e2Speak(R.say); e2Reveal(); }
+  else if(res==='wrong'){ if(key) pr.words[key]=Math.max(0,(pr.words[key]||0)-1); beep(false); e2Bubble('Listen!','Teisingai sakoma taip','think'); e2Status(`Teisingai: ${R.say}`,'bad'); wait=2600; e2Speak(R.say); e2Reveal(); }
   else { wait=600; }
   pp.n++; pp.i++; e2Save(); e2PaintBar(); e2Later(e2NextTurn,wait); }
 function e2Reveal(){ const R=E2.run; if(!R||!R.task) return; const k=R.task.k, it=R.task.it;
   if(k==='say'||k==='talk'){ const w=$('#e2Main .e2word'); if(w) w.innerHTML=`<b>${e2Esc(R.say)}</b><span>${e2Esc(k==='talk'?it.lt:it.lt)}</span>`; }
-  if(k==='pick') document.querySelectorAll('#e2Main .e2opt').forEach(b=>b.classList.toggle('ok',b.dataset.w===it.w));
+  const key=it.w||it.s;
+  document.querySelectorAll('#e2Main .e2opt,#e2Main .e2wopt').forEach(b=>b.classList.toggle('ok',b.dataset.w===key));
+  if(k==='miss'){ const g=$('#e2Main .e2slot.gap'); if(g){ g.textContent=it.w[R.missI]; g.classList.add('ok'); } }
   if(k==='yesno') document.querySelectorAll('#e2Main .e2ynb').forEach(b=>b.classList.toggle('ok',(b.dataset.v==='1')===R.yes)); }
-$('#e2Main').onclick=e=>{ const R=E2.run; if(!R||R.answered) return; const o=e.target.closest('.e2opt'), y=e.target.closest('.e2ynb'), it=R.task&&R.task.it;
-  if(o){ if(o.dataset.w===it.w){ o.classList.add('ok'); e2Speak(it.w); if(R.tries) e2DoneSoft(); else e2Done('ok'); } else { o.classList.add('bad'); o.disabled=true; beep(false); R.tries++; if(R.tries>=2) e2Done('wrong'); else { e2Status('Ne tas. Klausyk dar kartą!','bad'); e2Speak(it.w); } } }
+function e2Shake(el){ el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); beep(false); }
+$('#e2Main').onclick=e=>{ const R=E2.run; if(!R||R.answered) return; const o=e.target.closest('.e2opt,.e2wopt'), y=e.target.closest('.e2ynb'), it=R.task&&R.task.it, k=R.task&&R.task.k;
+  const cd=e.target.closest('.e2card'), tl=e.target.closest('.e2tile');
+  if(cd&&R.memo){ const M=R.memo; if(M.busy||cd.classList.contains('open')) return; cd.classList.add('open'); M.open.push(cd);
+    if(M.open.length===2){ const [a,b]=M.open; M.open=[];
+      if(a.dataset.w===b.dataset.w){ a.classList.add('ok'); b.classList.add('ok'); e2Speak(a.dataset.w); beep(true); M.left--; e2Status(`${a.dataset.w} ✓`,'ok');
+        if(!M.left) e2Later(()=>{ if(M.miss<=4) e2Done('ok'); else e2DoneSoft(); },700); }
+      else { M.busy=true; M.miss++; e2Later(()=>{ a.classList.remove('open'); b.classList.remove('open'); M.busy=false; },950); } }
+    return; }
+  if(tl&&R.spell&&k==='spell'){ const Sp=R.spell, word=it.w; if(tl.classList.contains('used')) return;
+    if(tl.dataset.c===word[Sp.pos]){ const sl=document.querySelectorAll('#e2Main .e2slot')[Sp.pos]; sl.textContent=word[Sp.pos]; sl.classList.remove('ghost'); sl.classList.add('ok'); tl.classList.add('used'); Sp.pos++;
+      if(Sp.pos>=word.length){ e2Speak(word); if(Sp.miss===0) e2Done('ok'); else e2DoneSoft(); } }
+    else { e2Shake(tl); Sp.miss++; if(Sp.miss>=3) document.querySelectorAll('#e2Main .e2slot').forEach((s,i)=>{ if(i>=Sp.pos){ s.textContent=word[i]; s.classList.add('ghost'); } }); }
+    return; }
+  if(tl&&k==='miss'){ if(tl.disabled) return; const c=it.w[R.missI];
+    if(tl.dataset.c===c){ tl.classList.add('ok'); const g=$('#e2Main .e2slot.gap'); g.textContent=c; g.classList.add('ok'); e2Speak(it.w); if(R.tries) e2DoneSoft(); else e2Done('ok'); }
+    else { tl.classList.add('bad'); tl.disabled=true; e2Shake(tl); R.tries++; if(R.tries>=2) e2Done('wrong'); else e2Status('Ne ta raidė. Pabandyk dar!','bad'); }
+    return; }
+  if(tl&&R.ord){ const O=R.ord; if(tl.classList.contains('used')) return;
+    if(tl.dataset.x===O.toks[O.pos]){ tl.classList.add('used'); $('#e2Sent').insertAdjacentHTML('beforeend',`<span>${e2Esc(O.toks[O.pos])}</span>`); O.pos++; document.querySelectorAll('#e2Main .e2wt').forEach(b=>b.classList.remove('hint'));
+      if(O.pos>=O.toks.length){ e2Speak(it.s); if(O.miss===0) e2Done('ok'); else e2DoneSoft(); } }
+    else { e2Shake(tl); O.miss++; if(O.miss>=2){ const nx=[...document.querySelectorAll('#e2Main .e2wt:not(.used)')].find(b=>b.dataset.x===O.toks[O.pos]); if(nx) nx.classList.add('hint'); } }
+    return; }
+  if(o){ const key=it.w||it.s; if(o.dataset.w===key){ o.classList.add('ok'); if(o.classList.contains('e2bubl')) o.classList.add('pop'); e2Speak(key); if(R.tries) e2DoneSoft(); else e2Done('ok'); }
+    else { o.classList.add('bad'); o.disabled=true; beep(false); R.tries++; if(R.tries>=2) e2Done('wrong'); else if(R.read) e2Status('Ne tas. Perskaityk dar kartą!','bad'); else { e2Status('Ne tas. Klausyk dar kartą!','bad'); e2Speak(key); } } }
   if(y){ const v=y.dataset.v==='1'; if(v===R.yes){ y.classList.add('ok'); e2Speak(R.yes?'Yes, it is!':'No, it is not!'); e2Done('ok'); } else { y.classList.add('bad'); e2Speak(R.yes?'Yes, it is!':'No, it is not!'); e2Done('wrong'); } } };
 function e2DoneSoft(){ const R=E2.run; R.answered=true; const pp=R.per[R.cur]; beep(true); e2Bubble('Good!','Šį kartą pavyko!','happy'); e2Status('Teisingai!','ok'); pp.n++; pp.i++; e2Save(); e2PaintBar(); $('#e2Skip').hidden=true; e2Later(e2NextTurn,1400); }
 function e2Finish(){ const R=E2.run, t=E2.topic; let rows='';
@@ -4843,7 +4963,6 @@ $('#enDiag2').onclick=()=>{
 paintTable(); paintDetail();
 })();
 </script>
-
 
 </body>
 </html>
