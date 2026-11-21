@@ -4607,6 +4607,7 @@ function e2MatchW(heard,w,pool){ const c=enCands(heard,new Set(w.split(' '))); i
 const E2_STOP=new Set(['a','an','the','is','am','are','it','i','you','to','your','my','of']);
 function e2MatchS(heard,s){ const tg=enNorm(enDig(s)).split(' ').filter(t=>t&&!E2_STOP.has(t)); if(!tg.length) return enNorm(heard).length>0; const c=enCands(heard,new Set(tg));
   const hit=tg.filter(t=>enScore(c,t)<=.34).length; return hit>=Math.max(1,Math.round(tg.length*.6)); }
+function e2FullS(heard,s){ const tg=enNorm(enDig(s)).split(' ').filter(t=>t&&!E2_STOP.has(t)); if(!tg.length) return enNorm(heard).length>0; const c=enCands(heard,new Set(tg)); return tg.every(t=>enScore(c,t)<=.34); }
 const enMatch=(h,w)=>e2MatchW(h,w,[]);
 /* ---------- TURINYS ---------- */
 const e2W=(arr)=>arr.map(([w,lt,p])=>({w,lt,p})), e2Sn=(arr)=>arr.map(([s,lt,p])=>({s,lt,p}));
@@ -4788,19 +4789,19 @@ function e2Task(){ const R=E2.run, pp=R.per[R.cur], task=pp.q[pp.i], t=E2.topic,
   const pool=t.words.map(x=>x.w); const after=fn=>{ R.prompt=fn; return e2Speak(fn); }; const after2=fn=>after(fn).then(()=>{ if(tok===E2.tok) return new Promise(r=>setTimeout(r,250)); return Promise.reject(); });
   if(task.k==='learn'||task.k==='learnS'){ const txt=it.w||it.s;
     e2Bubble('Listen and repeat!','Paklausyk ir pakartok','happy'); $('#e2Main').innerHTML=`${e2Art(it.p,'big')}<div class="e2word"><b>${e2Esc(txt)}</b><span>${e2Esc(it.lt)}</span></div>`; R.say=txt;
-    after2(txt).then(()=>e2VoiceTask(h=>it.w?e2MatchW(h,it.w,pool):e2MatchS(h,it.s),{learn:1})).catch(()=>{}); }
+    after2(txt).then(()=>e2VoiceTask(h=>it.w?e2MatchW(h,it.w,pool):e2MatchS(h,it.s),it.w?{learn:1}:{learn:1,sent:1,full:h=>e2FullS(h,it.s)})).catch(()=>{}); }
   else if(task.k==='say'){ e2Bubble(e2Q(t.ask||'What is this?'),t.askLt||'Kas tai? Pasakyk angliškai','think');
     $('#e2Main').innerHTML=`${e2Art(it.p,'big')}<div class="e2word"><span>${e2Esc(it.lt)}</span></div>`; R.say=it.w;
     after2(e2Q(t.ask||'What is this?')).then(()=>e2VoiceTask(h=>e2MatchW(h,it.w,pool))).catch(()=>{}); }
   else if(task.k==='rep'){ e2Bubble('Say it after me!','Pakartok sakinį','happy'); $('#e2Main').innerHTML=`${e2Art(it.p,'big')}<div class="e2word"><b>${e2Esc(it.s)}</b><span>${e2Esc(it.lt)}</span></div>`; R.say=it.s;
-    after2(it.s).then(()=>e2VoiceTask(h=>e2MatchS(h,it.s))).catch(()=>{}); }
+    after2(it.s).then(()=>e2VoiceTask(h=>e2MatchS(h,it.s),{sent:1,full:h=>e2FullS(h,it.s)})).catch(()=>{}); }
   else if(task.k==='talk'){ const P=e2P(R.cur); let ok=it.ok||[], art='', w='';
     if(it.item){ const x=rnd(t.words); w=x.w; ok=[w]; art=e2Art(x.p,'big'); }
     if(it.okTopic) ok=pool.concat(EN_NUM.slice(5,13));
     if(it.count){ const n=1+Math.floor(Math.random()*6); w=EN_NUM[n]; ok=[w]; art=`<div class="e2art big e2emo"><span class="e2many">${'🍎'.repeat(n)}</span></div>`; }
     const model=it.m.replace('{name}',P?P.name:'').replace('{w}',w); R.say=model;
     e2Bubble(e2Q(it.q),it.lt,'think'); $('#e2Main').innerHTML=`${art}<div class="e2word"><b>${e2Esc(it.q)}</b><span>${e2Esc(it.lt)}</span></div>`;
-    after2(e2Q(it.q)).then(()=>e2VoiceTask(h=>it.any?enNorm(h).length>0:ok.some(o=>enScore(enCands(h,new Set(o.split(' '))),o)<=.3))).catch(()=>{}); }
+    after2(e2Q(it.q)).then(()=>e2VoiceTask(h=>it.any?enNorm(h).length>0:ok.some(o=>enScore(enCands(h,new Set(o.split(' '))),o)<=.3),{sent:1})).catch(()=>{}); }
   else if(task.k==='pick'){ const opts=enShuffle([it,...enShuffle(t.words.filter(x=>x.w!==it.w)).slice(0,3)]); R.say=it.w;
     e2Bubble(e2Q('Find it!'),'Paklausyk ir paliesk paveikslėlį','happy');
     $('#e2Main').innerHTML=`<div class="e2opts">${opts.map(o=>`<button class="e2opt" data-w="${e2Esc(o.w)}">${e2Art(o.p)}</button>`).join('')}</div>`;
@@ -4842,33 +4843,40 @@ function e2Task(){ const R=E2.run, pp=R.per[R.cur], task=pp.q[pp.i], t=E2.topic,
     e2Speak(e2Q('Put the words in order!')); }
 }
 $('#e2Rep').onclick=()=>{ const R=E2.run; if(!R||!R.task||R.answered) return; const k=R.task.k, voice=['learn','learnS','say','rep','talk'].includes(k); const tok=++E2.tok; enStopListen(); $('#e2Live').hidden=true;
-  e2Speak(R.prompt||R.say).then(()=>{ if(voice&&tok===E2.tok&&R===E2.run&&!R.answered&&R.check) setTimeout(()=>{ if(tok===E2.tok) e2VoiceTask(R.check); },250); }); };
+  e2Speak(R.prompt||R.say).then(()=>{ if(voice&&tok===E2.tok&&R===E2.run&&!R.answered&&R.check) setTimeout(()=>{ if(tok===E2.tok) e2VoiceTask(R.check,R.vo||{}); },250); }); };
 $('#e2Skip').onclick=()=>{ const R=E2.run; if(!R) return; e2Clear(); e2Done('skip'); };
 /* balsas: automatinis klausymas */
-function e2Hear(check,done){
+function e2Hear(check,done,o={}){
   const mode=enMicMode(); let fin=false, heard='', last=0, eng=()=>{}, clean=()=>{}; const t0=Date.now(), sil=(E2S.set.sil||6)*1000;
   const ctl={stop:()=>end('stopped')}; EN_LST=ctl;
   const end=r=>{ if(fin) return; fin=true; clearInterval(tk); try{ clean(); }catch(e){} if(EN_LST===ctl) EN_LST=null; done(r,heard); };
-  const got=txt=>{ if(!txt||fin) return; heard=txt; last=Date.now(); e2Status('Girdžiu: '+txt); if(check(txt)) end('ok'); };
-  const tk=setInterval(()=>{ const n=Date.now(); if(heard&&n-last>1500) end('wrong'); else if(!heard&&n-t0>sil) end('silent'); },250);
+  /* sakiniai: klausomės, kol vaikas baigia (pauzė), nebent jau išgirsti visi žodžiai */
+  const fullNow=txt=>!o.sent||(o.full&&o.full(txt));
+  const got=txt=>{ if(!txt||fin) return; heard=txt; last=Date.now(); e2Status('Girdžiu: '+txt); if(check(txt)&&fullNow(txt)) end('ok'); };
+  const tk=setInterval(()=>{ const n=Date.now(); if(heard){ const okNow=check(heard), gap=o.sent?(okNow?1300:2300):1500; if(n-last>gap) end(okNow?'ok':'wrong'); } else if(n-t0>sil) end('silent'); },250);
   if(mode==='dic'){ const D=EN_DIC, offs=[]; let fl='';
     clean=()=>{ offs.forEach(f=>{ try{ f(); }catch(e){} }); if(D.active()) D.stop().catch(()=>{}); };
     offs.push(D.onPartial(({text})=>got((fl+' '+(text||'')).trim())));
     offs.push(D.onFinal(({text})=>{ fl=(fl+text).trim(); got(fl); }));
-    offs.push(D.onState(({state})=>{ if(state==='idle'&&!fin) end(heard?(check(heard)?'ok':'wrong'):'silent'); }));
+    offs.push(D.onState(({state})=>{ if(state!=='idle'||fin) return;
+      if(heard&&o.sent&&!fullNow(heard)&&Date.now()-last<2000){ fl=heard; D.start({language:'en'}).catch(()=>end(check(heard)?'ok':'wrong')); return; }
+      end(heard?(check(heard)?'ok':'wrong'):'silent'); }));
     D.start({language:'en'}).catch(e=>end(e&&e.code==='not_granted'?'denied':e&&e.code==='dismissed'?'needtap':'error'));
     return ctl; }
   let r; try{ r=new EN_SR(); }catch(e){ end('error'); return ctl; }
-  r.lang='en-US'; r.interimResults=true; r.continuous=true; r.maxAlternatives=5; let err='';
+  r.lang='en-US'; r.interimResults=true; r.continuous=true; r.maxAlternatives=5; let err='', base='';
   clean=()=>{ r.onresult=r.onerror=r.onend=null; try{ r.abort(); }catch(e){} };
-  r.onresult=ev=>{ const all=[...ev.results], alts=[all.map(x=>x[0].transcript).join(' ')]; all.forEach(x=>[...x].forEach(a=>alts.push(a.transcript))); got(alts.find(a=>a&&check(a))||alts[0]); };
+  r.onresult=ev=>{ const all=[...ev.results], alts=[all.map(x=>x[0].transcript).join(' ')]; all.forEach(x=>[...x].forEach(a=>alts.push(a.transcript)));
+    const A=alts.map(a=>(base+' '+(a||'')).trim()); got(A.find(a=>a&&check(a)&&fullNow(a))||(o.sent?A[0]:A.find(a=>a&&check(a)))||A[0]); };
   r.onerror=ev=>{ err=ev.error||''; };
   r.onend=()=>{ if(fin) return; if(err==='not-allowed'||err==='service-not-allowed') return end(Date.now()-t0<800?'needtap':'denied');
+    /* sakinys nebaigtas, o atpažinimas sustojo (iPad po pirmo žodžio) – tęsiame, išgirsta dalis išsaugoma */
+    if(heard&&o.sent&&!fullNow(heard)&&Date.now()-last<2000){ base=heard; err=''; try{ r.start(); return; }catch(e){} }
     if(heard) return end(check(heard)?'ok':'wrong'); if(Date.now()-t0<sil-600){ try{ r.start(); return; }catch(e){} } end('silent'); };
   try{ r.start(); }catch(e){ end('needtap'); }
   return ctl; }
 let E2_TAPS=0;
-function e2VoiceTask(check,o={}){ const R=E2.run; if(!R) return; R.check=check; R.answered=false; const tok=E2.tok;
+function e2VoiceTask(check,o={}){ const R=E2.run; if(!R) return; R.check=check; R.vo=o; R.answered=false; const tok=E2.tok;
   if(enMicMode()==='self'){ e2Status('Pasakyk garsiai…','wait'); $('#e2Mic').hidden=true; e2Later(()=>e2Done('nomic'),4000); return; }
   $('#e2Mic').hidden=true; $('#e2Live').hidden=false; e2Status('Klausau…','wait');
   e2Hear(check,(res,h)=>{ $('#e2Live').hidden=true; if(tok!==E2.tok||R!==E2.run) return;
@@ -4877,7 +4885,7 @@ function e2VoiceTask(check,o={}){ const R=E2.run; if(!R) return; R.check=check; 
     if(res==='needtap'){ if(E2_TAPS++<2){ e2Status('Paspausk mikrofoną ir kalbėk','wait'); const m=$('#e2Mic'); m.hidden=false; m.onclick=()=>{ m.hidden=true; e2VoiceTask(check,o); }; return; } res='denied'; }
     if(res==='denied'||res==='error'){ if(enMicMode()==='dic') EN_DIC=null; else EN_WEB_DEAD=9; enPaintMic(); return e2Done('nomic'); }
     if(res==='stopped') return;
-    R.tries++; if(R.tries<2){ beep(false); e2Status(`Išgirdau: „${h}“. Pabandyk dar!`,'bad'); e2Later(()=>e2VoiceTask(check,o),1100); } else e2Done('wrong',h); }); }
+    R.tries++; if(R.tries<2){ beep(false); e2Status(`Išgirdau: „${h}“. Pabandyk dar!`,'bad'); e2Later(()=>e2VoiceTask(check,o),1100); } else e2Done('wrong',h); },o); }
 /* rezultatas */
 function e2Done(res,h){ const R=E2.run; if(!R||R.answered) return; R.answered=true; enStopListen(); const pp=R.per[R.cur], it=R.task.it, pr=e2Prog(R.cur), key=it.w||it.s||it.q;
   $('#e2Skip').hidden=true; let wait=1500;
