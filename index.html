@@ -713,6 +713,13 @@ button{touch-action:manipulation; -webkit-tap-highlight-color:transparent}
 .e2bubl .e2emo span,.e2bubl .e2emo span.e2two{font-size:clamp(34px,min(8vh,12vw),64px)}
 .e2bubl.ok{animation-play-state:paused; border-color:var(--good)!important; box-shadow:0 0 0 5px var(--good)} .e2bubl.pop{transform:scale(1.4); opacity:0; transition:transform .4s,opacity .4s} .e2bubl.bad{opacity:.35}
 @keyframes e2rise{0%{top:100%; margin-left:0}25%{margin-left:3%}50%{margin-left:-3%}75%{margin-left:3%}100%{top:-26%; margin-left:0}}
+/* emoji dydis pagal kortelės plotį – kad du emoji tilptų ir mažoje kortelėje */
+@supports (container-type:inline-size){
+ .e2art{container-type:inline-size}
+ .e2main .e2emo span{font-size:46cqw}
+ .e2main .e2emo span.e2two{font-size:28cqw}
+ .e2main .e2emo span.e2many{font-size:13cqw; white-space:normal}
+}
 @media (prefers-reduced-motion:reduce){ .e2bubl{animation:none; top:30%} .e2bubl:nth-child(2n){top:58%} .e2tile.hint{animation:none} }
 @media (prefers-reduced-motion:reduce){ .e2live i,.e2turn-in{animation:none} }
 /* anglų kalba */
