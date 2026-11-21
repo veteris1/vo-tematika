@@ -613,6 +613,70 @@ button{touch-action:manipulation; -webkit-tap-highlight-color:transparent}
 .cv.pop{animation:dvpop .8s ease-in both}
 @keyframes dvpop{0%{opacity:1}35%{opacity:1; fill:#FFE066}100%{opacity:0}}
 @media (prefers-reduced-motion:reduce){ #dvWheel{transition-duration:.6s} .cv.pop{animation-duration:.01s} }
+/* anglų kalba 2.0 */
+.e2wrap{max-width:960px; margin:0 auto; width:100%; display:flex; flex-direction:column; gap:10px}
+.e2bar{display:flex; flex-wrap:wrap; gap:6px; align-items:center}
+.e2chip{display:flex; align-items:center; border:3px solid var(--pc); border-radius:999px; background:var(--card); overflow:hidden}
+.e2chip.cur{background:var(--pc); color:#fff; transform:scale(1.06)} .e2chip.rest{opacity:.45; border-style:dashed}
+.e2chipb{display:flex; align-items:center; gap:6px; border:0; background:none; color:inherit; font-weight:800; font-size:16px; padding:3px 10px 3px 4px}
+.e2chipb svg{width:30px; height:30px} .e2chipb b{font-size:14px} .e2chipb i{font-style:normal}
+.e2x{border:0; background:none; color:inherit; font-size:20px; font-weight:800; padding:0 10px 0 2px; line-height:1}
+.e2add,.e2gear{width:40px; height:40px; border-radius:50%; border:2px dashed var(--line); background:var(--card); font-size:20px; font-weight:800; color:var(--ink)}
+.e2hello{display:flex; align-items:center; gap:10px; background:var(--card); border:2px solid var(--line); border-radius:20px; padding:8px 14px}
+.e2hello b{display:block; font-family:var(--display); font-size:20px}
+.e2olly-s{width:64px; height:64px; flex:none} .e2olly-s svg,.e2olly-b svg{width:100%; height:100%; display:block}
+.e2olly-b{width:110px; height:110px; display:block; margin:0 auto}
+.e2isles{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px}
+@media (max-width:420px){ .e2isles{grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px} }
+.e2isle{border:3px solid var(--line); border-radius:22px; background:var(--card); color:var(--ink); padding:10px 8px; display:flex; flex-direction:column; align-items:center; gap:2px; min-width:0}
+.e2isle b{font-family:var(--display); font-size:19px} .e2isle small{color:var(--ink-soft); font-weight:700}
+.e2isle em{font-style:normal; font-size:12px; font-weight:800; color:var(--ink-soft); text-align:center}
+.e2isle.lock{opacity:.55; filter:grayscale(.6)}
+.e2isle-pic{width:70px; height:70px; border-radius:50%; background:radial-gradient(circle at 50% 70%,#F9E0A2 0 46%,#7FD3F0 47% 100%); display:grid; place-items:center; box-shadow:inset 0 -6px 0 rgba(0,0,0,.08)}
+.e2isle-pic span{font-size:34px; transform:translateY(-4px)} .e2isle-pic.sm{width:54px; height:54px} .e2isle-pic.sm span{font-size:26px}
+.e2meds{display:flex; flex-wrap:wrap; gap:3px; justify-content:center; min-height:26px}
+.e2mini{position:relative; width:26px; height:26px; border-radius:50%; border:2px solid var(--pc); background:var(--card)}
+.e2mini svg{width:100%; height:100%} .e2mini i{position:absolute; right:-7px; bottom:-6px; font-style:normal; font-size:12px; font-weight:800; background:var(--card); border-radius:8px; padding:0 2px}
+.e2thead{display:flex; align-items:center; gap:10px; flex-wrap:wrap} .e2tt{display:flex; align-items:center; gap:10px} .e2tt h2{margin:0}
+.e2stations{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px}
+@media (max-width:420px){ .e2stations{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.e2stn{position:relative; border:3px solid var(--line); border-radius:20px; background:var(--card); color:var(--ink); padding:12px 8px; display:flex; flex-direction:column; align-items:center; gap:4px}
+.e2stn b{font-size:18px} .e2stn-ic{font-size:34px} .e2stn em{font-style:normal; font-size:12px; font-weight:800; color:var(--ink-soft)}
+.e2stn-n{position:absolute; top:6px; left:10px; font-weight:800; color:var(--ink-soft)} .e2stn.lock{opacity:.5}
+.e2bub{display:flex; align-items:center; gap:10px; background:var(--card); border:2px solid var(--line); border-radius:20px; padding:6px 12px}
+.e2say{flex:1; min-width:0} .e2say b{display:block; font-family:var(--display); font-size:clamp(18px,3vh,24px)} .e2say small{color:var(--ink-soft); font-weight:700}
+.e2prog{font-weight:800; color:var(--ink-soft)}
+.e2main{display:flex; flex-direction:column; align-items:center; gap:8px; min-height:200px}
+.e2art{width:min(62vw,30vh,260px); aspect-ratio:1; border-radius:22px; overflow:hidden; background:var(--card); border:3px solid var(--line); display:grid; place-items:center}
+.e2art svg{width:100%; height:100%; display:block}
+.e2emo span{font-size:clamp(60px,14vh,120px); line-height:1; text-align:center} .e2emo span{white-space:nowrap} .e2emo span.e2two{font-size:clamp(44px,9vh,84px)} .e2emo span.e2many{font-size:clamp(28px,6vh,48px); line-height:1.2; padding:8px}
+.e2word{text-align:center} .e2word b{display:block; font-family:var(--display); font-size:clamp(26px,5vh,42px); line-height:1.15} .e2word span{font-weight:700; color:var(--ink-soft)}
+.e2opts{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; width:min(100%,50vh,480px)}
+.e2opt{border:4px solid var(--line); background:var(--card); border-radius:20px; padding:4px} .e2opt .e2art{width:100%; border:0}
+.e2opt.ok{border-color:var(--good); transform:scale(1.04)} .e2opt.bad{border-color:var(--warn); opacity:.45}
+.e2yn{display:flex; gap:12px} .e2ynb{font-family:var(--display); font-size:24px; font-weight:800; border:4px solid var(--line); border-radius:18px; padding:10px 22px; background:var(--card); color:var(--ink)}
+.e2ynb.yes{border-color:#22A559} .e2ynb.no{border-color:#E63946} .e2ynb.ok{background:var(--good-bg); border-color:var(--good)} .e2ynb.bad{background:var(--warn-bg)}
+.e2status{min-height:1.4em; text-align:center; font-weight:800; font-size:17px} .e2status.ok{color:var(--good)} .e2status.bad{color:var(--warn)} .e2status.wait{color:var(--ink-soft)}
+.e2live{display:flex; gap:5px; justify-content:center; height:26px; align-items:center}
+.e2live i{width:6px; height:10px; border-radius:3px; background:var(--red); animation:e2wave 1s ease-in-out infinite} .e2live i:nth-child(2){animation-delay:.15s} .e2live i:nth-child(3){animation-delay:.3s} .e2live i:nth-child(4){animation-delay:.45s} .e2live i:nth-child(5){animation-delay:.6s}
+@keyframes e2wave{50%{height:24px}}
+.e2ctl{justify-content:center; gap:8px} .e2ctl .btn{padding:8px 14px; font-size:16px} .e2mic{background:var(--warn)}
+.e2turn{position:fixed; inset:0; z-index:70; display:grid; place-items:center; background:rgba(45,20,60,.55)}
+.e2turn[hidden]{display:none}
+.e2turn-in{background:var(--card); border:6px solid var(--pc); border-radius:30px; padding:20px 30px; display:flex; flex-direction:column; align-items:center; gap:8px; animation:e2pop .5s cubic-bezier(.3,1.6,.6,1)}
+.e2turn-in span svg{width:110px; height:110px} .e2turn-in b{font-family:var(--display); font-size:32px; color:var(--ink)}
+@keyframes e2pop{0%{transform:scale(.5)}100%{transform:scale(1)}}
+.e2donebox{background:var(--card); border:2px solid var(--line); border-radius:24px; padding:16px; display:flex; flex-direction:column; gap:10px; text-align:center; max-width:520px; margin:0 auto; width:100%}
+.e2donebox h2{margin:0} .e2rows{display:flex; flex-direction:column; gap:8px}
+.e2res{display:grid; grid-template-columns:44px 1fr auto; align-items:center; gap:8px; border:3px solid var(--pc); border-radius:16px; padding:6px 10px; text-align:left}
+.e2res svg{width:44px; height:44px} .e2res b{font-size:18px} .e2res span{font-weight:800} .e2res em{grid-column:1/-1; font-style:normal; font-weight:800; text-align:center}
+.e2setrows{display:flex; flex-direction:column; gap:8px; width:100%}
+.e2setrow{display:flex; gap:8px; align-items:center; border:3px solid var(--pc); border-radius:16px; padding:6px}
+.e2avbtn{width:52px; height:52px; border:0; background:none; padding:0; flex:none} .e2avbtn svg{width:100%; height:100%}
+.e2setrow input{flex:1; min-width:0; font:inherit; font-size:18px; font-weight:800; padding:8px 10px; border-radius:12px; border:2px solid var(--line); background:var(--paper); color:var(--ink)}
+.e2rm{border:0; background:none; font-size:20px} .e2setmsg{color:var(--warn); font-weight:800; min-height:1.2em}
+.e2micinfo{margin:0; text-align:center}
+@media (prefers-reduced-motion:reduce){ .e2live i,.e2turn-in{animation:none} }
 /* anglų kalba */
 @media (max-width:520px){ .subjects{gap:8px} .subj{flex-direction:column!important; gap:2px!important; padding:8px 4px!important; font-size:15px; line-height:1.15; text-align:center} .subj svg{width:28px!important; height:28px!important} }
 .enwrap{max-width:900px; margin:0 auto; width:100%; display:flex; flex-direction:column; gap:10px}
@@ -1143,44 +1207,45 @@ button{touch-action:manipulation; -webkit-tap-highlight-color:transparent}
 
   <!-- ANGLŲ KALBA 2 KL. -->
   <div id="scr-en2" class="screen" hidden>
-    <div class="enwrap">
-      <div class="enhead"><h2>Profesijos <span class="muted">· Jobs</span></h2>
-        <div class="seg" id="enMode" role="group" aria-label="Užduotis"><button data-m="learn" aria-pressed="true">Mokytis</button><button data-m="say" aria-pressed="false">Pasakyk</button><button data-m="find" aria-pressed="false">Surask</button></div></div>
-      <div id="enLearn"><p class="muted entip">Paliesk kortelę ir paklausyk, kaip žodis tariamas angliškai. Pakartok garsiai!</p><div class="engrid" id="enGrid"></div></div>
-      <div id="enSay" hidden>
-        <div id="enSayRun" class="enstage">
-          <div class="enprog"><span id="enSayN"></span><span id="enSayOk"></span></div>
-          <div class="encard" id="enSayPic"></div>
-          <div class="enword" id="enSayWord" aria-live="polite"></div>
-          <div class="enheard" id="enSayHeard" aria-live="polite"></div>
-          <div class="row enbtns" id="enMicRow">
-            <button class="btn enmic" id="enMic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span>Sakyk angliškai</span></button>
-            <button class="btn" id="enCheck" hidden>Patikrinti</button>
-            <button class="btn ghost enspk" id="enHint"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.500 6.500a8 8 0 0 1 0 11"/></svg>Paklausyti</button>
-          </div>
-          <div class="row enbtns" id="enSelfRow" hidden><button class="btn" id="enSelfOk">Pasakiau teisingai</button><button class="btn ghost" id="enSelfNo">Suklydau</button></div>
-          <div class="row enbtns" id="enNextRow" hidden><button class="btn" id="enNext">Toliau</button><button class="btn ghost" id="enNextSkip">Bandyti dar</button></div>
-          <button class="enlink" id="enSelfToggle"></button>
-          <button class="enlink" id="enDiagOpen">Mikrofono patikra</button>
-          <div class="endiag" id="enDiag" hidden>
-            <b>Mikrofono patikra</b>
-            <div class="row enbtns"><button class="btn ghost" id="enDiag1">1. Garsas</button><button class="btn ghost" id="enDiag2">2. Atpažinimas</button></div>
-            <div class="endiagbar"><i id="enDiagLvl"></i></div>
-            <pre id="enDiagLog"></pre>
-          </div>
+    <div class="e2wrap">
+      <div class="e2bar" id="e2Bar"></div>
+      <div id="e2Map">
+        <div class="e2hello"><span class="e2olly-s" id="e2MapOlly"></span><div><b>Hello! I am Olly.</b><span class="muted">Pasirink salą ir keliaukime!</span></div></div>
+        <div class="e2isles" id="e2Isles"></div>
+        <p class="muted e2micinfo" id="e2MicInfo"></p>
+        <button class="enlink" id="enDiagOpen">Mikrofono patikra</button>
+        <div class="endiag" id="enDiag" hidden>
+          <b>Mikrofono patikra</b>
+          <div class="row enbtns"><button class="btn ghost" id="enDiag1">1. Garsas</button><button class="btn ghost" id="enDiag2">2. Atpažinimas</button></div>
+          <div class="endiagbar"><i id="enDiagLvl"></i></div>
+          <pre id="enDiagLog"></pre>
         </div>
-        <div id="enSayDone" class="enstage" hidden><h2>Pasakyk – rezultatas</h2><div class="enres" id="enSayRes"></div><div class="row enbtns"><button class="btn" id="enSayAgain">Iš naujo</button></div></div>
       </div>
-      <div id="enFind" hidden>
-        <div id="enFindRun" class="enstage">
-          <div class="enprog"><span id="enFindN"></span><span id="enFindOk"></span></div>
-          <div class="row enbtns"><button class="btn enspk" id="enFindPlay"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.500 6.500a8 8 0 0 1 0 11"/></svg>Klausyk</button><b class="enfindword" id="enFindWord" hidden></b></div>
-          <div class="enopts" id="enOpts"></div>
-          <div class="fb" id="enFindFb" aria-live="polite"></div>
-        </div>
-        <div id="enFindDone" class="enstage" hidden><h2>Surask – rezultatas</h2><div class="enres" id="enFindRes"></div><div class="row enbtns"><button class="btn" id="enFindAgain">Iš naujo</button></div></div>
+      <div id="e2Topic" hidden>
+        <div class="e2thead"><button class="btn ghost" id="e2BackMap">← Salos</button><div class="e2tt" id="e2TopicHead"></div></div>
+        <div class="e2stations" id="e2Stations"></div>
+      </div>
+      <div id="e2Play" hidden>
+        <div class="e2bub"><span class="e2olly-s" id="e2Olly"></span><div class="e2say"><b id="e2En"></b><small id="e2Lt"></small></div><span class="e2prog" id="e2Prog"></span></div>
+        <div class="e2main" id="e2Main"></div>
+        <div class="e2status" id="e2Status" aria-live="polite"></div>
+        <div class="e2live" id="e2Live" hidden><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="row e2ctl"><button class="btn e2mic" id="e2Mic" hidden>🎤 Kalbėk</button><button class="btn ghost" id="e2Rep">🔊 Dar kartą</button><button class="btn ghost" id="e2Skip">Praleisti</button><button class="btn ghost" id="e2Quit">Baigti</button></div>
+      </div>
+      <div id="e2Done" hidden>
+        <div class="e2donebox"><span class="e2olly-b" id="e2DoneOlly"></span><h2>Well done!</h2><div id="e2DoneRows" class="e2rows"></div>
+        <div class="row" style="justify-content:center"><button class="btn" id="e2Next">Toliau</button><button class="btn ghost" id="e2DoneBack">Į salą</button></div></div>
       </div>
     </div>
+    <div class="e2turn" id="e2Turn" hidden><div class="e2turn-in"><span id="e2TurnAv"></span><b id="e2TurnName"></b></div></div>
+    <div class="dvov" id="e2SetupOv" hidden><div class="dvbox" role="dialog" aria-label="Kas šiandien mokosi">
+      <h2 style="margin:0">Kas šiandien mokosi?</h2>
+      <p class="muted" style="margin:0">Iki 4 vaikų. Paliesk gyvūnėlį, kad pakeistum.</p>
+      <div id="e2SetRows" class="e2setrows"></div>
+      <button class="btn ghost" id="e2SetAdd">+ Pridėti vaiką</button>
+      <div class="e2setmsg" id="e2SetMsg"></div>
+      <div class="row" style="justify-content:center"><button class="btn" id="e2SetGo">Pradėti</button><button class="btn ghost" id="e2SetClose">Uždaryti</button></div>
+    </div></div>
   </div>
 
   <!-- LIETUVIŲ KALBA 2 KL. -->
@@ -2508,12 +2573,28 @@ function pzRender(){
       <span style="font-weight:800;margin-top:6px">Daugyba iš kokių skaičių</span>
       <div class="chips" id="pzMul">${Array.from({length:10},(_,i)=>i+1).map(n=>`<button class="chip" data-n="${n}" aria-pressed="${filmMulSel().includes(n)}">${n}</button>`).join('')}</div>
       <span class="muted" style="font-size:14px">Pvz., pažymėjus 3 ir 4, bus tik 3 × … ir 4 × … uždaviniai. Turi likti bent vienas skaičius.</span></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-weight:800">Anglų kalba</span>
+      ${(()=>{ const E=store.get('daug.en2',{}); const P=E.players||[]; if(!P.length) return '<span class="muted">Dar nėra žaidėjų.</span>'; return P.map(p=>{ const pr=(E.prog||{})[p.id]||{}; const med=pr.medals||{}; const m=Object.keys(med).filter(k=>med[k]).map(k=>k+' '+['','🥉','🥈','🥇'][med[k]]).join(', ')||'medalių dar nėra'; const weak=Object.entries(pr.words||{}).filter(([w,l])=>l===0).map(([w])=>w).slice(0,6).join(', '); return `<div class="mbar" style="grid-template-columns:1fr"><span><b>${String(p.name).replace(/</g,'&lt;')}</b> – ⭐ ${pr.stars||0} · ${m}${weak?'<br><span class="muted">Pakartoti: '+weak+'</span>':''}</span></div>`; }).join(''); })()}
+      <label style="display:flex;gap:10px;align-items:center;justify-content:space-between;font-weight:700"><span>Kiek sekundžių laukti, kol vaikas prabils (tyla = užskaityta)</span><select id="pzEnSil" style="font:inherit;font-weight:800;padding:6px 10px;border-radius:12px;border:2px solid var(--line);background:var(--paper);color:var(--ink)">${[4,6,8,10].map(v=>`<option value="${v}" ${(((store.get('daug.en2',{}).set||{}).sil)||6)===v?'selected':''}>${v} s</option>`).join('')}</select></label>
+      <label style="display:flex;gap:10px;align-items:center;font-weight:700"><input type="checkbox" id="pzEnNames" style="width:22px;height:22px" ${((store.get('daug.en2',{}).set||{}).names)!==false?'checked':''}> Olly balsu sako vaiko vardą</label>
+      <label style="display:flex;gap:10px;align-items:center;font-weight:700"><input type="checkbox" id="pzEnUnlock" style="width:22px;height:22px" ${((store.get('daug.en2',{}).set||{}).unlock)?'checked':''}> Atrakinti visas salas</label></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><span style="font-weight:800">Pažangos perkėlimas į kitą įrenginį</span>
+      <span class="muted" style="font-size:14px">1) Šiame įrenginyje paspauskite „Kopijuoti kodą“ ir nusiųskite jį sau (žinute ar el. paštu). 2) Kitame įrenginyje įklijuokite kodą į laukelį ir paspauskite „Įkelti“. Perkeliama visa pažanga: žvaigždutės, kortelės, dėlionės, anglų kalbos žaidėjai.</span>
+      <textarea id="pzCode" rows="3" style="font:13px ui-monospace,monospace;padding:8px;border-radius:12px;border:2px solid var(--line);background:var(--paper);color:var(--ink);width:100%;box-sizing:border-box" placeholder="Čia atsiras arba įklijuokite pažangos kodą"></textarea>
+      <div class="row"><button class="btn ghost" id="pzCodeCopy">Kopijuoti kodą</button><button class="btn ghost" id="pzCodeLoad">Įkelti</button></div><span id="pzCodeMsg" style="font-weight:800"></span></div>
     <div class="row" id="pzResetRow"><button class="btn danger" id="pzReset">Išvalyti visą pažangą</button></div>
   </div>`;
   $('#pzTmax').onclick=e=>{ const b=e.target.closest('.chip'); if(!b) return; S.testMax=+b.dataset.n; saveS(); document.querySelectorAll('#pzTmax .chip').forEach(c=>c.setAttribute('aria-pressed',+c.dataset.n===S.testMax)); };
   $('#pzMul').onclick=e=>{ const b=e.target.closest('.chip'); if(!b) return; const n=+b.dataset.n; let sel=filmMulSel();
     sel=sel.includes(n)?sel.filter(x=>x!==n):[...sel,n].sort((x,y)=>x-y); if(!sel.length) return;
     S.filmMul=sel; saveS(); document.querySelectorAll('#pzMul .chip').forEach(c=>c.setAttribute('aria-pressed',sel.includes(+c.dataset.n))); };
+  const enSet=f=>{ E2S.set=Object.assign(E2S.set||{},f); e2Save(); };
+  $('#pzEnSil').onchange=e=>enSet({sil:+e.target.value}); $('#pzEnNames').onchange=e=>enSet({names:e.target.checked}); $('#pzEnUnlock').onchange=e=>enSet({unlock:e.target.checked});
+  $('#pzCodeCopy').onclick=()=>{ const o={}; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k&&k.startsWith('daug.')) o[k]=localStorage.getItem(k); }
+    const code='VO1:'+btoa(unescape(encodeURIComponent(JSON.stringify(o)))); $('#pzCode').value=code; $('#pzCode').select();
+    (navigator.clipboard?navigator.clipboard.writeText(code):Promise.reject()).then(()=>$('#pzCodeMsg').textContent='Nukopijuota ✓',()=>$('#pzCodeMsg').textContent='Pažymėta – nukopijuokite ranka'); };
+  $('#pzCodeLoad').onclick=()=>{ const v=$('#pzCode').value.trim(); try{ if(!v.startsWith('VO1:')) throw 0; const o=JSON.parse(decodeURIComponent(escape(atob(v.slice(4)))));
+    if(!confirm('Įkelti pažangą? Šio įrenginio pažanga bus pakeista.')) return; Object.keys(o).forEach(k=>{ if(k.startsWith('daug.')) localStorage.setItem(k,o[k]); }); location.reload(); }catch(e){ $('#pzCodeMsg').textContent='Kodas netinka – patikrinkite, ar nukopijuotas visas.'; } };
   document.querySelectorAll('.pzRew').forEach(c=>c.onchange=()=>{ S.filmRew=Object.assign({},S.filmRew||{},{[c.dataset.k]:+c.value}); saveS(); });
   document.querySelectorAll('.pzFt').forEach(c=>c.onchange=()=>{
     const t=Object.assign({},S.filmTopics||{}); t[c.dataset.k]=c.checked;
@@ -4454,163 +4535,279 @@ const EN_PICS={
     +enBody('#14213D')+`<path d="M84 130L100 158L116 130Z" fill="#fff"/><path d="M97 138h6l3 22-6 7-6-7Z" fill="#111"/><path d="M118 156q8-4 16 0q-8 3-16 0Z" fill="#FCA311"/><path d="M48 186h18M48 192h18M134 186h18M134 192h18" stroke="#FCA311" stroke-width="3"/>`
     +enFace({hair:'#8B5A2B',hs:'short'})+`<path d="M58 64Q100 34 142 64L134 78H66Z" fill="#14213D"/><rect x="66" y="72" width="68" height="9" fill="#FCA311"/><path d="M70 81Q100 94 130 81Z" fill="#0B132B"/><path d="M84 58q16-8 32 0q-16 4-32 0Z" fill="#FCA311"/><circle cx="100" cy="58" r="4" fill="#FCA311"/>`
 };
-const EN_TOPICS=[{id:'jobs',title:'Profesijos',en:'Jobs',words:[
-  ['postman','paštininkas'],['farmer','ūkininkas'],['policeman','policininkas'],['doctor','gydytojas'],['zookeeper','zoologijos sodo prižiūrėtojas'],
-  ['teacher','mokytoja'],['pupil','mokinys'],['housewife','namų šeimininkė'],['fireman','ugniagesys'],['pilot','pilotas']]}];
-const EN_ALT={policeman:['policemen','police officer','police'],fireman:['firemen','firefighter'],postman:['postmen','mailman'],zookeeper:['zookeepers'],housewife:['housewives'],doctor:['doctors','dr'],farmer:['farmers','former'],teacher:['teachers','teach her'],pupil:['pupils','people','purple'],pilot:['pilots']};
-const enPic=(w,cls='')=>`<svg class="${cls}" viewBox="0 0 200 200" role="img" aria-label="Paveikslėlis">${EN_PICS[w]()}</svg>`;
-const enTopic=()=>EN_TOPICS[0];
-let ENS=Object.assign({said:{}},store.get('daug.en',{})); const saveEN=()=>store.set('daug.en',ENS);
+/* ---------- ANGLŲ KALBA 2.0 – E1: žaidėjai, Olly, salos, automatinis kalbėjimas ---------- */
+const EN_ALT={policeman:['policemen','police officer','police'],fireman:['firemen','firefighter'],postman:['postmen','mailman'],zookeeper:['zookeepers'],housewife:['housewives'],doctor:['doctors','dr'],farmer:['farmers','former'],teacher:['teachers','teach her'],pupil:['pupils','people','purple'],pilot:['pilots'],
+  hello:['hi','hallo'],goodbye:['bye','good bye','bye bye'],'thank you':['thanks','thank'],'good night':['goodnight'],'good morning':['morning'],grey:['gray'],colour:['color']};
+const enPic=(w,cls='')=>`<svg class="${cls}" viewBox="0 0 200 200" role="img" aria-label="${w}">${EN_PICS[w]()}</svg>`;
+const enShuffle=a=>{ a=[...a]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
 /* balsas ir mikrofonas */
 let EN_TTS=null, EN_TTS_OFF=false, EN_DIC=null, EN_PREF=null, EN_WEB_DEAD=0;
 let EN_FRAMED=true; try{ EN_FRAMED=window.top!==window.self; }catch(e){}
 const EN_IOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
 const EN_SR=window.SpeechRecognition||window.webkitSpeechRecognition||null;
-/* iPhone/iPad: Claude programa ir Safari puslapiui balso neperduoda, todėl ten pagal nutylėjimą – savikontrolė */
 function enMicMode(){ if(EN_PREF==='self') return 'self'; if(EN_DIC) return 'dic'; if(EN_SR&&(EN_PREF==='mic'||!EN_IOS||!EN_FRAMED)&&EN_WEB_DEAD<2) return 'web'; return 'self'; }
-const enMicPossible=()=>!!(EN_DIC||EN_SR);
-const EN_DEAD_MSG='Šiame įrenginyje programa negirdi mikrofono, todėl tikrini pats.';
-(async()=>{ try{ if(window.claude&&typeof claude.use==='function'){ const [t,d]=await Promise.all([claude.use('tts').catch(()=>null),claude.use('dictation').catch(()=>null)]); EN_TTS=t; EN_DIC=d;
-  if(EN_TTS) EN_TTS.onState(({state})=>document.querySelectorAll('.enspk').forEach(b=>b.classList.toggle('on',state!=='idle'))); } }catch(e){} setTimeout(enPaintMic,0); })();
-function enSay(word){
-  if(EN_TTS){ EN_TTS.speak(word,{language:'en',rate:.85}).catch(e=>{ if(e&&(e.code==='not_granted'||e.code==='unavailable')){ EN_TTS=null; EN_TTS_OFF=true; enPaintSpk(); } }); return; }
-  if(EN_TTS_OFF||!('speechSynthesis' in window)) return;
-  try{ const u=new SpeechSynthesisUtterance(word); u.lang='en-GB'; u.rate=.85; const v=speechSynthesis.getVoices().find(v=>/^en[-_]GB/i.test(v.lang))||speechSynthesis.getVoices().find(v=>/^en/i.test(v.lang)); if(v) u.voice=v; speechSynthesis.cancel(); speechSynthesis.speak(u); }catch(e){}
-}
-const enCanSpeak=()=>!!EN_TTS||(!EN_TTS_OFF&&('speechSynthesis' in window));
-function enPaintSpk(){ document.querySelectorAll('.enspk').forEach(b=>b.hidden=!enCanSpeak()); }
-/* atpažinimas */
+(async()=>{ try{ if(window.claude&&typeof claude.use==='function'){ const [t,d]=await Promise.all([claude.use('tts').catch(()=>null),claude.use('dictation').catch(()=>null)]); EN_TTS=t; EN_DIC=d; } }catch(e){} setTimeout(enPaintMic,0); })();
+function e2Speak(text){ return new Promise(res=>{ let done=false; const fin=()=>{ if(!done){ done=true; clearTimeout(g); res(); } }; const g=setTimeout(fin,1500+String(text).length*95);
+  if(EN_TTS){ EN_TTS.speak(text,{language:'en',rate:.85}).then(fin,e=>{ if(e&&(e.code==='not_granted'||e.code==='unavailable')){ EN_TTS=null; EN_TTS_OFF=true; } fin(); }); return; }
+  if(EN_TTS_OFF||!('speechSynthesis' in window)){ setTimeout(fin,400); return; }
+  try{ const u=new SpeechSynthesisUtterance(text); u.lang='en-GB'; u.rate=.85; const vs=speechSynthesis.getVoices(); const v=vs.find(v=>/^en[-_]GB/i.test(v.lang))||vs.find(v=>/^en/i.test(v.lang)); if(v) u.voice=v; u.onend=fin; u.onerror=fin; speechSynthesis.cancel(); speechSynthesis.speak(u); }catch(e){ fin(); } }); }
+function e2StopSpeak(){ try{ if(EN_TTS&&EN_TTS.active()) EN_TTS.stop().catch(()=>{}); }catch(e){} try{ speechSynthesis.cancel(); }catch(e){} }
+const enSay=t=>{ e2Speak(t); };
+/* atpažinimas: garsinis raktas + artimiausias žodis */
 const enNorm=s=>String(s).toLowerCase().replace(/[^a-z\s]/g,' ').replace(/\s+/g,' ').trim();
+const EN_NUM=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
+const enDig=s=>String(s).replace(/\b(\d{1,2})\b/g,(m,d)=>EN_NUM[+d]||m);
 function enLev(a,b){ const m=a.length,n=b.length; if(!m) return n; if(!n) return m; let p=[...Array(n+1).keys()]; for(let i=1;i<=m;i++){ const c=[i]; for(let j=1;j<=n;j++) c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1)); p=c; } return p[n]; }
-/* Atlaidus palyginimas: garsinis raktas + artimiausias žodis iš temos (vaiko tarimas, iPad atpažinimas) */
-const EN_FILL=new Set(['a','an','the','is','it','its','i','im','am','um','uh','er','oh','and','its','this','he','she','hes','shes','my','yes','no','okay','ok']);
+const EN_FILL=new Set(['a','an','the','is','it','its','i','im','am','um','uh','er','oh','and','this','he','she','hes','shes','my','yes','no','okay','ok','so','well','like']);
 function enKey(s){ s=String(s).toLowerCase().replace(/[^a-z]/g,'').replace(/ph/g,'f').replace(/ck/g,'k').replace(/c(?=[eiy])/g,'s').replace(/[cq]/g,'k').replace(/x/g,'ks').replace(/z/g,'s').replace(/wh/g,'w').replace(/(.)\1+/g,'$1'); return (s[0]||'')+s.slice(1).replace(/[aeiouy]/g,''); }
-function enCands(heard){
-  const toks=enNorm(heard).split(' ').filter(t=>t&&!EN_FILL.has(t)), c=new Set();
-  toks.forEach((t,i)=>{ c.add(t); if(toks[i+1]) c.add(t+toks[i+1]); if(toks[i+2]) c.add(t+toks[i+1]+toks[i+2]); });
-  return [...c];
-}
-function enScore(cands,word){
-  const tg=[word,...(EN_ALT[word]||[])].map(x=>x.replace(/ /g,'')); let best=9;
-  cands.forEach(c=>tg.forEach(t=>{ if(c===t){ best=0; return; } const k1=enKey(c), k2=enKey(t);
-    const d=Math.min(enLev(c,t)/Math.max(c.length,t.length), enLev(k1,k2)/Math.max(k1.length,k2.length,1)+.05); if(d<best) best=d; }));
-  return best;
-}
-function enMatch(heard,word){
-  const cands=enCands(heard); if(!cands.length) return false;
-  const mine=enScore(cands,word); if(mine===0) return true; if(mine>.38) return false;
-  const others=(EN_TOPICS.find(t=>t.words.some(w=>w[0]===word))||enTopic()).words.map(w=>w[0]).filter(w=>w!==word);
-  return others.every(o=>enScore(cands,o)>mine);
-}
+function enCands(heard,keep){ keep=keep||new Set(); const toks=enNorm(enDig(heard)).split(' ').filter(t=>t&&(keep.has(t)||!EN_FILL.has(t))), c=new Set();
+  toks.forEach((t,i)=>{ c.add(t); if(toks[i+1]) c.add(t+toks[i+1]); if(toks[i+2]) c.add(t+toks[i+1]+toks[i+2]); }); return [...c]; }
+function enScore(cands,word){ const tg=[word,...(EN_ALT[word]||[])].map(x=>x.replace(/ /g,'')); let best=9;
+  cands.forEach(c=>tg.forEach(t=>{ if(c===t){ best=0; return; } const k1=enKey(c), k2=enKey(t); const d=Math.min(enLev(c,t)/Math.max(c.length,t.length), enLev(k1,k2)/Math.max(k1.length,k2.length,1)+.05); if(d<best) best=d; })); return best; }
+function e2MatchW(heard,w,pool){ const c=enCands(heard,new Set(w.split(' '))); if(!c.length) return false; const mine=enScore(c,w); if(mine===0) return true; if(mine>.38) return false; return (pool||[]).filter(o=>o!==w).every(o=>enScore(c,o)>mine); }
+const E2_STOP=new Set(['a','an','the','is','am','are','it','i','you','to','your','my','of']);
+function e2MatchS(heard,s){ const tg=enNorm(enDig(s)).split(' ').filter(t=>t&&!E2_STOP.has(t)); if(!tg.length) return enNorm(heard).length>0; const c=enCands(heard,new Set(tg));
+  const hit=tg.filter(t=>enScore(c,t)<=.34).length; return hit>=Math.max(1,Math.round(tg.length*.6)); }
+const enMatch=(h,w)=>e2MatchW(h,w,[]);
+/* ---------- TURINYS ---------- */
+const e2W=(arr)=>arr.map(([w,lt,p])=>({w,lt,p})), e2Sn=(arr)=>arr.map(([s,lt,p])=>({s,lt,p}));
+const E2_T=[
+ {id:'hello',en:'Hello!',lt:'Pasisveikinimai',e:'👋',
+  words:e2W([['hello','labas','👋'],['goodbye','viso gero','🙋'],['good morning','labas rytas','🌅'],['good night','labanakt','🌙'],['please','prašau','🙏'],['thank you','ačiū','💐'],['yes','taip','👍'],['no','ne','👎'],['sorry','atsiprašau','😔']]),
+  sents:e2Sn([['Hello! I am Olly.','Labas! Aš esu Olly.','🦉👋'],['How are you?','Kaip sekasi?','🙂❓'],['I am fine, thank you.','Man gerai, ačiū.','😊👍'],['What is your name?','Kuo tu vardu?','🙂❔'],['Goodbye!','Viso gero!','👋🏠']]),
+  talk:[{q:'How are you?',lt:'Kaip sekasi?',ok:['fine','good','ok','okay','great','happy','well','super'],m:'I am fine, thank you.'},{q:'What is your name?',lt:'Kuo tu vardu?',any:1,m:'My name is {name}.'},{q:'Say goodbye!',lt:'Atsisveikink!',ok:['goodbye','bye'],m:'Goodbye!'},{q:'Say hello!',lt:'Pasisveikink!',ok:['hello','hi'],m:'Hello!'}],
+  ask:'How do you say it?', askLt:'Kaip pasakyti angliškai?'},
+ {id:'colours',en:'Colours',lt:'Spalvos',e:'🎨',
+  words:e2W([['red','raudona','c:#E63946'],['blue','mėlyna','c:#3A86FF'],['green','žalia','c:#2DBE60'],['yellow','geltona','c:#FFD23F'],['orange','oranžinė','c:#FF8C1A'],['pink','rožinė','c:#FF7EB6'],['purple','violetinė','c:#8E5BD9'],['black','juoda','c:#222222'],['white','balta','c:#FFFFFF'],['brown','ruda','c:#8B5A2B']]),
+  sents:e2Sn([['It is red.','Tai raudona.','c:#E63946'],['It is blue.','Tai mėlyna.','c:#3A86FF'],['I like pink.','Man patinka rožinė.','💖'],['The sun is yellow.','Saulė geltona.','☀️'],['The grass is green.','Žolė žalia.','🌿']]),
+  talk:[{q:'What colour is it?',lt:'Kokios spalvos?',item:1,m:'It is {w}.'},{q:'What colour do you like?',lt:'Kokia spalva tau patinka?',okTopic:1,m:'I like pink.'}],
+  ask:'What colour is it?', askLt:'Kokia tai spalva?', yn:w=>`Is it ${w}?`},
+ {id:'numbers',en:'Numbers',lt:'Skaičiai',e:'🔢',
+  words:e2W(EN_NUM.slice(1,11).map((w,i)=>[w,['vienas','du','trys','keturi','penki','šeši','septyni','aštuoni','devyni','dešimt'][i],'n:'+(i+1)])),
+  sents:e2Sn([['I am eight.','Man aštuoneri metai.','🎂'],['One, two, three!','Vienas, du, trys!','n:3'],['How old are you?','Kiek tau metų?','🎈'],['Three apples.','Trys obuoliai.','🍎🍎🍎']]),
+  talk:[{q:'How old are you?',lt:'Kiek tau metų?',okTopic:1,m:'I am eight.'},{q:'How many apples?',lt:'Kiek obuolių?',count:1,m:'{w} apples.'},{q:'Count to five!',lt:'Suskaičiuok iki penkių!',ok:['one','two','three','four','five'],m:'One, two, three, four, five.'}],
+  ask:'What number is it?', askLt:'Koks tai skaičius?', yn:w=>`Is it ${w}?`},
+ {id:'animals',en:'Animals',lt:'Gyvūnai',e:'🐾',soon:1},
+ {id:'family',en:'Family',lt:'Šeima',e:'👪',soon:1},
+ {id:'school',en:'School',lt:'Mokykla',e:'🎒',soon:1},
+ {id:'toys',en:'Toys',lt:'Žaislai',e:'🧸',soon:1},
+ {id:'food',en:'Food',lt:'Maistas',e:'🍎',soon:1},
+ {id:'body',en:'Body',lt:'Kūnas',e:'✋',soon:1},
+ {id:'jobs',en:'Jobs',lt:'Profesijos',e:'👩‍🚒',
+  words:e2W([['postman','paštininkas'],['farmer','ūkininkas'],['policeman','policininkas'],['doctor','gydytojas'],['zookeeper','zoologijos sodo prižiūrėtojas'],['teacher','mokytoja'],['pupil','mokinys'],['housewife','namų šeimininkė'],['fireman','ugniagesys'],['pilot','pilotas']].map(([w,l])=>[w,l,'job:'+w])),
+  sents:e2Sn([['He is a doctor.','Jis gydytojas.','job:doctor'],['She is a teacher.','Ji mokytoja.','job:teacher'],['My dad is a farmer.','Mano tėtis – ūkininkas.','job:farmer'],['He is a pilot.','Jis pilotas.','job:pilot']]),
+  talk:[{q:'Who is it?',lt:'Kas tai?',item:1,m:'It is a {w}.'}],
+  ask:'Who is it?', askLt:'Kas tai?', yn:w=>`Is it a ${w}?`}
+];
+const e2T=id=>E2_T.find(t=>t.id===id);
+const E2_ST=[['learn','Mokausi','📖'],['listen','Klausau','👂'],['read','Skaitau','🔤',1],['write','Rašau','✏️',1],['speak','Kalbu','🗣️'],['test','Išbandymas','🏆']];
+/* paveikslėliai */
+function e2Art(p,cls=''){ p=p||'';
+  if(p.startsWith('job:')) return `<div class="e2art ${cls}">${enPic(p.slice(4))}</div>`;
+  if(p.startsWith('c:')){ const c=p.slice(2); return `<div class="e2art ${cls}"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M104 24c36 2 70 22 74 56s-12 70-44 86-76 14-98-12-20-66-2-94 34-38 70-36z" fill="${c}" stroke="${c==='#FFFFFF'?'#C9C2D6':'rgba(0,0,0,.15)'}" stroke-width="5"/><ellipse cx="74" cy="66" rx="24" ry="12" fill="#fff" opacity=".35" transform="rotate(-30 74 66)"/></svg></div>`; }
+  if(p.startsWith('n:')){ const n=+p.slice(2), cols=['#FF6FA5','#FFD23F','#3A86FF','#2DBE60','#FF8C1A']; let d='';
+    for(let i=0;i<n;i++){ const row=i<5?0:1, col=i%5, cnt=row?n-5:Math.min(n,5), x=100+(col-(cnt-1)/2)*30; d+=`<circle cx="${x}" cy="${row?178:146}" r="12" fill="${cols[i%5]}"/>`; }
+    return `<div class="e2art ${cls}"><svg viewBox="0 0 200 200" aria-hidden="true"><text x="100" y="${n>5?108:118}" text-anchor="middle" font-family="inherit" font-weight="800" font-size="${n>5?92:104}" fill="#7C4DFF">${n}</text>${d}</svg></div>`; }
+  return `<div class="e2art e2emo ${cls}"><span${p.length>2?' class="e2two"':''}>${p}</span></div>`; }
+/* avatarai */
+const E2_AV=['fox','rabbit','owl','cat','dog','bear','frog','hedgehog'], E2_AVLT={fox:'Lapė',rabbit:'Zuikis',owl:'Pelėda',cat:'Katė',dog:'Šuo',bear:'Meška',frog:'Varlė',hedgehog:'Ežiukas'};
+const E2_COL=['#E94B97','#3A86FF','#22A559','#FF8C1A'];
+function e2Av(k){ const C={fox:['#FF8C42','#FFF4EA'],rabbit:['#C3CAD6','#FFFFFF'],owl:['#A47148','#F3E1C7'],cat:['#9AA5B1','#EEF1F5'],dog:['#D9A066','#F8E7CF'],bear:['#8B5A2B','#D9B48F'],frog:['#5CC46A','#D7F5C9'],hedgehog:['#8D6E63','#F1D9C4']}[k]||['#ccc','#fff']; let s='';
+  if(k==='fox') s+=`<path d="M18 40L24 8L44 26ZM82 40L76 8L56 26Z" fill="${C[0]}"/><path d="M24 30L27 15L37 26ZM76 30L73 15L63 26Z" fill="#fff"/>`;
+  if(k==='rabbit') s+=`<ellipse cx="36" cy="22" rx="9" ry="24" fill="${C[0]}"/><ellipse cx="64" cy="22" rx="9" ry="24" fill="${C[0]}"/><ellipse cx="36" cy="24" rx="4" ry="16" fill="#FFC1D9"/><ellipse cx="64" cy="24" rx="4" ry="16" fill="#FFC1D9"/>`;
+  if(k==='owl') s+=`<path d="M22 32L20 12L38 24ZM78 32L80 12L62 24Z" fill="${C[0]}"/>`;
+  if(k==='cat') s+=`<path d="M20 38L22 10L42 26ZM80 38L78 10L58 26Z" fill="${C[0]}"/><path d="M25 30L26 17L35 26ZM75 30L74 17L65 26Z" fill="#FFC1D9"/>`;
+  if(k==='bear') s+=`<circle cx="25" cy="28" r="12" fill="${C[0]}"/><circle cx="75" cy="28" r="12" fill="${C[0]}"/><circle cx="25" cy="28" r="6" fill="${C[1]}"/><circle cx="75" cy="28" r="6" fill="${C[1]}"/>`;
+  if(k==='hedgehog') s+=`<path d="M14 56L8 38L22 40L18 22L34 30L36 12L50 24L64 12L66 30L82 22L78 40L92 38L86 56Z" fill="#5D4037"/>`;
+  if(k==='frog') s+=`<circle cx="33" cy="28" r="14" fill="${C[0]}"/><circle cx="67" cy="28" r="14" fill="${C[0]}"/>`;
+  s+=`<circle cx="50" cy="56" r="34" fill="${C[0]}"/>`;
+  if(k==='dog') s+=`<ellipse cx="18" cy="52" rx="10" ry="20" fill="#A86B3C" transform="rotate(15 18 52)"/><ellipse cx="82" cy="52" rx="10" ry="20" fill="#A86B3C" transform="rotate(-15 82 52)"/>`;
+  s+=`<ellipse cx="50" cy="68" rx="19" ry="14" fill="${C[1]}"/>`;
+  if(k==='owl') s+=`<circle cx="37" cy="50" r="12" fill="#fff"/><circle cx="63" cy="50" r="12" fill="#fff"/><path d="M45 60L55 60L50 70Z" fill="#FF9F1C"/>`;
+  const ey=k==='frog'?28:50, ex=k==='frog'?[33,67]:[37,63];
+  if(k==='frog') s+=`<circle cx="33" cy="28" r="8" fill="#fff"/><circle cx="67" cy="28" r="8" fill="#fff"/>`;
+  s+=`<circle cx="${ex[0]}" cy="${ey}" r="5" fill="#2B2040"/><circle cx="${ex[1]}" cy="${ey}" r="5" fill="#2B2040"/><circle cx="${ex[0]+1.6}" cy="${ey-1.6}" r="1.6" fill="#fff"/><circle cx="${ex[1]+1.6}" cy="${ey-1.6}" r="1.6" fill="#fff"/>`;
+  if(k!=='owl') s+=`<ellipse cx="50" cy="62" rx="5.5" ry="4" fill="#2B2040"/>`;
+  s+=`<path d="M42 72Q50 79 58 72" stroke="#2B2040" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="28" cy="66" r="5" fill="#FF8FB8" opacity=".55"/><circle cx="72" cy="66" r="5" fill="#FF8FB8" opacity=".55"/>`;
+  return `<svg viewBox="0 0 100 100" aria-hidden="true">${s}</svg>`; }
+function e2Olly(mood){ const pupil=mood==='think'?'cy="44"':'cy="50"';
+  return `<svg viewBox="0 0 120 120" aria-hidden="true"><path d="M30 40L24 14L46 30ZM90 40L96 14L74 30Z" fill="#7B57B8"/><ellipse cx="60" cy="68" rx="40" ry="44" fill="#8E6BCB"/><ellipse cx="60" cy="82" rx="26" ry="28" fill="#EADFFB"/>
+  <path d="M50 76q5 5 10 0q5 5 10 0M46 88q7 6 14 0q7 6 14 0" stroke="#C9B6EC" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M22 64Q10 84 26 100Q30 82 34 72Z" fill="#7B57B8"/><path d="M98 64Q110 84 94 100Q90 82 86 72Z" fill="#7B57B8"/>
+  <circle cx="44" cy="50" r="15" fill="#fff"/><circle cx="76" cy="50" r="15" fill="#fff"/><circle cx="44" ${pupil} r="7" fill="#2B2040"/><circle cx="76" ${pupil} r="7" fill="#2B2040"/><circle cx="46.500" cy="${mood==='think'?41.500:47.500}" r="2.400" fill="#fff"/><circle cx="78.500" cy="${mood==='think'?41.500:47.500}" r="2.400" fill="#fff"/>
+  ${mood==='wow'?'<ellipse cx="60" cy="70" rx="6" ry="7" fill="#FF9F1C"/><path d="M14 20l6 4M106 20l-6 4M60 4v7" stroke="#FFD23F" stroke-width="4" stroke-linecap="round"/>':'<path d="M53 62L67 62L60 74Z" fill="#FF9F1C"/>'}
+  <path d="M46 112l-6 5M50 112v6M74 112l6 5M70 112v6" stroke="#FF9F1C" stroke-width="4" stroke-linecap="round"/></svg>`; }
+/* ---------- BŪSENA ---------- */
+let E2S=Object.assign({players:[],prog:{}},store.get('daug.en2',{}));
+E2S.set=Object.assign({sil:6,names:true,unlock:false},E2S.set||{});
+const e2Save=()=>store.set('daug.en2',E2S);
+const e2Act=()=>E2S.players.filter(p=>p.active);
+const e2P=id=>E2S.players.find(p=>p.id===id);
+const e2Col=p=>E2_COL[Math.max(0,E2S.players.indexOf(p))%4];
+const e2Prog=id=>{ const p=E2S.prog[id]||(E2S.prog[id]={}); p.words=p.words||{}; p.steps=p.steps||{}; p.medals=p.medals||{}; p.stars=p.stars||0; return p; };
+const e2Esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const E2={view:'map',topic:null,run:null,timers:[],tok:0};
+const e2Later=(f,ms)=>{ const id=setTimeout(f,ms); E2.timers.push(id); return id; };
+function e2Clear(){ E2.timers.forEach(clearTimeout); E2.timers=[]; E2.tok++; enStopListen(); e2StopSpeak(); }
 let EN_LST=null;
-/* Klausymas su savo laikmačiais: kad ir kaip elgtųsi naršyklė ar platforma, mygtukas visada grįžta */
-function enListen(onHeard,onDone){
-  const mode=enMicMode(); let done=false, final='', heard='', alts=[], err='', watchdog=null, cleanup=()=>{}, engineStop=()=>{};
-  const end=reason=>{ if(done) return; done=true; clearTimeout(watchdog); try{ cleanup(); }catch(e){} if(EN_LST===ctl) EN_LST=null; onDone(heard.trim(),reason,alts); };
-  const soft=()=>{ try{ engineStop(); }catch(e){} setTimeout(()=>end('stopped'),1500); };
-  const got=t=>{ heard=t; if(onHeard(t)===true){ try{ engineStop(); }catch(e){} end('matched'); } };
-  const ctl={stop:soft,end}; EN_LST=ctl;
-  watchdog=setTimeout(soft,8000);
-  if(mode==='dic'){
-    const D=EN_DIC, offs=[];
-    engineStop=()=>{ D.stop().catch(()=>{}); };
-    cleanup=()=>{ offs.forEach(f=>{ try{ f(); }catch(e){} }); if(D.active()) D.stop().catch(()=>{}); };
-    offs.push(D.onPartial(({text})=>{ if(text) got((final+' '+text).trim()); }));
-    offs.push(D.onFinal(({text})=>{ final=(final+text).trim(); if(final) got(final); if(final&&!done) engineStop(); }));
-    offs.push(D.onState(({state,reason})=>{ if(state==='idle') end(reason||'stopped'); }));
-    D.start({language:'en'}).catch(e=>end(e&&e.code||'upstream_error'));
-    return ctl;
-  }
-  if(mode==='web'){
-    let r, alive=false; try{ r=new EN_SR(); }catch(e){ end('unavailable'); return ctl; }
-    r.lang='en-US'; r.interimResults=true; r.maxAlternatives=5; r.continuous=true;
-    engineStop=()=>{ try{ r.stop(); }catch(e){} };
-    cleanup=()=>{ if(!heard.trim()&&!alive) EN_WEB_DEAD++; else if(heard.trim()) EN_WEB_DEAD=0; r.onresult=r.onerror=r.onend=r.onaudiostart=r.onsoundstart=r.onspeechstart=null; try{ r.abort(); }catch(e){} };
-    r.onresult=ev=>{ const all=[...ev.results], joined=all.map(x=>x[0].transcript).join(' ').trim(); alts=[joined]; all.forEach(x=>[...x].forEach(a=>alts.push(a.transcript))); const hit=alts.find(a=>a&&onHeardMatch(a)); if(hit){ heard=hit; return got(hit); } got(joined); };
-    const onHeardMatch=a=>EN.say&&enMatch(a,EN.say.list[EN.say.i][0]);
-    r.onsoundstart=r.onspeechstart=()=>{ alive=true; };
-    r.onerror=ev=>{ err=ev.error||''; };
-    r.onend=()=>end(err==='not-allowed'||err==='service-not-allowed'?'not_granted':err==='audio-capture'?'unavailable':err==='no-speech'?'no_speech':err||'stopped');
-    try{ r.start(); }catch(e){ end('unavailable'); }
-    return ctl;
-  }
-  end('unavailable'); return ctl;
-}
 function enStopListen(){ if(EN_LST) EN_LST.stop(); }
-/* ekranas */
-const EN={mode:'learn',say:null,find:null,listening:false};
-function enEnter(){ track('en'); enPaintSpk(); enShowMode(EN.mode); }
-function enShowMode(m){ EN.mode=m; document.querySelectorAll('#enMode button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===m));
-  $('#enLearn').hidden=m!=='learn'; $('#enSay').hidden=m!=='say'; $('#enFind').hidden=m!=='find'; enStopListen();
-  if(m==='learn') enRenderLearn(); if(m==='say'){ if(!EN.say||EN.say.done) enSayStart(); else enSayRender(); } if(m==='find'){ if(!EN.find||EN.find.done) enFindStart(); else enFindRender(); } }
-$('#enMode').onclick=e=>{ const b=e.target.closest('button'); if(b) enShowMode(b.dataset.m); };
-function enRenderLearn(){
-  $('#enGrid').innerHTML=enTopic().words.map(([w,lt])=>`<button class="encard-sm" data-w="${w}">${enPic(w)}<b>${w}</b><small>${lt}</small>${ENS.said[w]?'<i class="enok" title="Jau pasakei">✓</i>':''}</button>`).join('');
+function enPaintMic(){ const m=$('#e2MicInfo'); if(!m) return; const mode=enMicMode(); m.textContent=mode==='self'?'🎤 Mikrofonas šiame įrenginyje neveikia – kalbėk garsiai, atsakymą parodysiu pati.':''; }
+/* ---------- EKRANAI ---------- */
+function e2Show(v){ E2.view=v; ['map','topic','play','done'].forEach(x=>$('#e2'+x[0].toUpperCase()+x.slice(1)).hidden=x!==v); e2PaintBar(); }
+function enEnter(){ track('en'); $('#e2MapOlly').innerHTML=e2Olly('happy'); if(!E2S.players.length) e2OpenSetup(); if(E2.view==='play'&&E2.run) return e2PaintBar(); e2RenderMap(); e2Show('map'); enPaintMic(); }
+function e2PaintBar(){
+  const b=$('#e2Bar'); if(!b) return; const R=E2.run, playing=E2.view==='play';
+  b.innerHTML=E2S.players.map(p=>{ const cur=playing&&R&&R.cur===p.id, pp=R&&R.per[p.id];
+    return `<div class="e2chip${p.active?'':' rest'}${cur?' cur':''}" style="--pc:${e2Col(p)}"><button class="e2chipb" data-act="${p.active?'':'back'}" data-id="${p.id}" aria-label="${e2Esc(p.name)}${p.active?'':' – grąžinti'}">${e2Av(p.avatar)}<span>${e2Esc(p.name)}</span>${playing&&pp?`<b>⭐${pp.ok}</b>`:''}${p.active?'':'<i>↩</i>'}</button>${p.active&&e2Act().length>1?`<button class="e2x" data-id="${p.id}" aria-label="${e2Esc(p.name)} ilsisi">×</button>`:''}</div>`; }).join('')
+   +(E2S.players.length<4?`<button class="e2add" id="e2Add" aria-label="Pridėti vaiką">+</button>`:'')+`<button class="e2gear" id="e2Gear" aria-label="Žaidėjai">👥</button>`;
 }
-$('#enGrid').onclick=e=>{ const b=e.target.closest('button'); if(!b) return; document.querySelectorAll('#enGrid button').forEach(x=>x.classList.toggle('on',x===b)); enSay(b.dataset.w); };
-const enShuffle=a=>{ a=[...a]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
-/* Pasakyk */
-function enSayStart(){ EN.say={list:enShuffle(enTopic().words),i:0,ok:0,tries:0,state:'ask',heard:'',done:false}; $('#enSayDone').hidden=true; $('#enSayRun').hidden=false; enSayRender(); }
-function enPaintMic(){
-  const mode=enMicMode(), b=$('#enMic'); if(!b) return;
-  b.hidden=mode==='self'; $('#enCheck').hidden=mode!=='self'; $('#enSelfToggle').hidden=false;
-  $('#enSelfToggle').textContent=mode==='self'?(enMicPossible()?'Bandyti mikrofoną':''):'Be mikrofono – tikrinsiu pats';
-  if(mode==='self'&&!enMicPossible()) $('#enSelfToggle').hidden=true;
-  enPaintSpk();
+$('#e2Bar').onclick=e=>{ const x=e.target.closest('.e2x'), c=e.target.closest('.e2chipb');
+  if(e.target.closest('#e2Add')) return e2OpenSetup(true);
+  if(e.target.closest('#e2Gear')) return e2OpenSetup();
+  if(x){ const p=e2P(x.dataset.id); p.active=false; e2Save(); if(E2.view==='play'&&E2.run&&E2.run.cur===p.id){ e2Clear(); e2NextTurn(); } else e2PaintBar(); return; }
+  if(c&&c.dataset.act==='back'){ const p=e2P(c.dataset.id); p.active=true; e2Save(); e2PaintBar(); if(E2.view==='topic') e2RenderTopic(); } };
+/* žaidėjų nustatymai */
+let E2_SET=[];
+function e2OpenSetup(addNew){ E2_SET=E2S.players.map(p=>({...p})); if(!E2_SET.length||addNew&&E2_SET.length<4) E2_SET.push({id:'p'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),name:'',avatar:E2_AV.find(a=>!E2_SET.some(p=>p.avatar===a))||'fox',active:true});
+  e2RenderSetup(); $('#e2SetupOv').hidden=false; const ins=document.querySelectorAll('#e2SetRows input'); const empty=[...ins].find(i=>!i.value); if(empty) setTimeout(()=>empty.focus(),50); }
+function e2RenderSetup(){
+  $('#e2SetRows').innerHTML=E2_SET.map((p,i)=>`<div class="e2setrow" style="--pc:${E2_COL[i%4]}"><button class="e2avbtn" data-i="${i}" aria-label="Keisti gyvūnėlį (${E2_AVLT[p.avatar]})">${e2Av(p.avatar)}</button><input data-i="${i}" maxlength="14" placeholder="Vardas" value="${e2Esc(p.name)}" autocomplete="off"><button class="e2rm" data-i="${i}" aria-label="Pašalinti">🗑</button></div>`).join('');
+  $('#e2SetAdd').hidden=E2_SET.length>=4; }
+$('#e2SetRows').oninput=e=>{ const i=e.target.dataset.i; if(i!=null&&e.target.tagName==='INPUT') E2_SET[+i].name=e.target.value; };
+$('#e2SetRows').onclick=e=>{ const a=e.target.closest('.e2avbtn'), r=e.target.closest('.e2rm');
+  if(a){ const p=E2_SET[+a.dataset.i]; let k=E2_AV.indexOf(p.avatar); for(let n=0;n<8;n++){ k=(k+1)%8; if(!E2_SET.some(q=>q!==p&&q.avatar===E2_AV[k])) break; } p.avatar=E2_AV[k]; e2RenderSetup(); }
+  if(r){ const p=E2_SET[+r.dataset.i]; if(p.name&&E2S.players.some(q=>q.id===p.id)&&!confirm(`Pašalinti ${p.name}? Jo pažanga bus ištrinta.`)) return; E2_SET.splice(+r.dataset.i,1); e2RenderSetup(); } };
+$('#e2SetAdd').onclick=()=>{ if(E2_SET.length>=4) return; E2_SET.push({id:'p'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),name:'',avatar:E2_AV.find(a=>!E2_SET.some(p=>p.avatar===a))||'fox',active:true}); e2RenderSetup(); const ins=document.querySelectorAll('#e2SetRows input'); ins[ins.length-1].focus(); };
+$('#e2SetGo').onclick=()=>{ const list=E2_SET.filter(p=>p.name.trim()); if(!list.length){ $('#e2SetMsg').textContent='Įrašyk bent vieną vardą.'; return; }
+  const keep=new Set(list.map(p=>p.id)); E2S.players.forEach(p=>{ if(!keep.has(p.id)) delete E2S.prog[p.id]; });
+  E2S.players=list.map(p=>({...p,name:p.name.trim()})); e2Save(); $('#e2SetupOv').hidden=true; $('#e2SetMsg').textContent='';
+  if(E2.view==='play'&&E2.run){ e2PaintBar(); if(!e2Act().some(p=>p.id===E2.run.cur)){ e2Clear(); e2NextTurn(); } } else { e2RenderMap(); if(E2.view==='topic') e2RenderTopic(); e2PaintBar(); } };
+$('#e2SetClose').onclick=()=>{ if(!E2S.players.length) return; $('#e2SetupOv').hidden=true; };
+/* salų žemėlapis */
+function e2Unlocked(i){ const t=E2_T[i]; if(t.soon) return false; if(i===0||E2S.set.unlock||t.id==='jobs') return true;
+  let j=i-1; while(j>=0&&E2_T[j].soon) j--; if(j<0) return true; const prev=E2_T[j]; return E2S.players.some(p=>(e2Prog(p.id).medals[prev.id]||0)>0); }
+function e2RenderMap(){
+  $('#e2Isles').innerHTML=E2_T.map((t,i)=>{ const un=e2Unlocked(i);
+    const meds=E2S.players.map(p=>{ const pr=e2Prog(p.id), m=pr.medals[t.id]||0, st=Object.keys(pr.steps[t.id]||{}).length; return `<span class="e2mini" style="--pc:${e2Col(p)}" title="${e2Esc(p.name)}">${e2Av(p.avatar)}<i>${m?['','🥉','🥈','🥇'][m]:st?st+'/4':''}</i></span>`; }).join('');
+    return `<button class="e2isle${un?'':' lock'}" data-t="${t.id}" ${un?'':'aria-disabled="true"'}><span class="e2isle-pic"><span>${t.e}</span></span><b>${t.en}</b><small>${t.lt}</small>${t.soon?'<em>Greitai</em>':un?`<span class="e2meds">${meds}</span>`:'<em>🔒 Gauk medalį ankstesnėje saloje</em>'}</button>`; }).join(''); }
+$('#e2Isles').onclick=e=>{ const b=e.target.closest('.e2isle'); if(!b||b.classList.contains('lock')) return; E2.topic=e2T(b.dataset.t); e2RenderTopic(); e2Show('topic'); };
+function e2RenderTopic(){ const t=E2.topic;
+  $('#e2TopicHead').innerHTML=`<span class="e2isle-pic sm"><span>${t.e}</span></span><div><h2>${t.en}</h2><span class="muted">${t.lt}</span></div>`;
+  $('#e2Stations').innerHTML=E2_ST.map(([k,l,ic,soon],i)=>{ const who=E2S.players.map(p=>{ const pr=e2Prog(p.id); const done=pr.steps[t.id]&&pr.steps[t.id][k]; const m=k==='test'?(pr.medals[t.id]||0):0; return done?`<span class="e2mini" style="--pc:${e2Col(p)}">${e2Av(p.avatar)}<i>${m?['','🥉','🥈','🥇'][m]:'✓'}</i></span>`:''; }).join('');
+    return `<button class="e2stn${soon?' lock':''}" data-k="${k}"><span class="e2stn-n">${i+1}</span><span class="e2stn-ic">${ic}</span><b>${l}</b>${soon?'<em>Greitai</em>':`<span class="e2meds">${who}</span>`}</button>`; }).join(''); }
+$('#e2Stations').onclick=e=>{ const b=e.target.closest('.e2stn'); if(!b||b.classList.contains('lock')) return; e2Start(b.dataset.k); };
+$('#e2BackMap').onclick=()=>{ e2RenderMap(); e2Show('map'); };
+$('#e2Quit').onclick=()=>{ e2Clear(); E2.run=null; e2RenderTopic(); e2Show('topic'); };
+/* ---------- UŽDUOTYS ---------- */
+function e2Tasks(t,st){ const W=enShuffle(t.words), S=enShuffle(t.sents), K=enShuffle(t.talk||[]); const w=i=>W[i%W.length], s=i=>S[i%S.length], k=i=>K[i%K.length]; const o=[];
+  if(st==='learn'){ for(let i=0;i<4;i++) o.push({k:'learn',it:w(i)}); for(let i=0;i<2;i++) o.push({k:'learnS',it:s(i)}); }
+  if(st==='listen') for(let i=0;i<6;i++) o.push({k:i%3===2?'yesno':'pick',it:w(i)});
+  if(st==='speak'){ o.push({k:'say',it:w(0)},{k:'say',it:w(1)},{k:'say',it:w(2)},{k:'rep',it:s(0)},{k:'rep',it:s(1)}); if(K.length) o.push({k:'talk',it:k(0)}); }
+  if(st==='test') ['pick','say','yesno','pick','say','talk','pick','say','yesno','talk'].forEach((x,i)=>o.push(x==='talk'?(K.length?{k:'talk',it:k(i)}:{k:'say',it:w(i+5)}):{k:x,it:w(i)}));
+  return o; }
+const e2NewPer=st=>({q:e2Tasks(E2.topic,st),i:0,ok:0,sil:0,n:0});
+function e2Start(st){ if(!e2Act().length) return e2OpenSetup(); e2Clear(); const per={}; e2Act().forEach(p=>per[p.id]=e2NewPer(st)); E2.run={st,per,cur:null}; e2Show('play'); e2NextTurn(); }
+function e2NextTurn(){ const R=E2.run; if(!R) return; const act=e2Act(); if(!act.length){ E2.run=null; e2RenderTopic(); return e2Show('topic'); }
+  act.forEach(p=>{ if(!R.per[p.id]) R.per[p.id]=e2NewPer(R.st); });
+  const left=act.filter(p=>R.per[p.id].i<R.per[p.id].q.length); if(!left.length) return e2Finish();
+  const ids=E2S.players.map(p=>p.id); const s0=R.cur?ids.indexOf(R.cur)+1:0; let nx=null;
+  for(let j=0;j<ids.length;j++){ const id=ids[(s0+j)%ids.length]; if(left.some(p=>p.id===id)){ nx=id; break; } }
+  R.cur=nx; e2PaintBar(); const P=e2P(nx);
+  if(act.length>1){ const T=$('#e2Turn'); T.style.setProperty('--pc',e2Col(P)); $('#e2TurnAv').innerHTML=e2Av(P.avatar); $('#e2TurnName').textContent=`Dabar – ${P.name}!`; T.hidden=false; e2Later(()=>{ T.hidden=true; e2Task(); },1300); }
+  else e2Task(); }
+function e2Name(){ const P=e2P(E2.run.cur); return P&&E2S.set.names&&e2Act().length>1?P.name+', ':''; }
+const e2Q=q=>{ const n=e2Name(); return n?n+q[0].toLowerCase()+q.slice(1):q; };
+function e2Bubble(en,lt,mood){ $('#e2Olly').innerHTML=e2Olly(mood); $('#e2En').textContent=en; $('#e2Lt').textContent=lt||''; }
+function e2Status(t,cls){ const s=$('#e2Status'); s.className='e2status'+(cls?' '+cls:''); s.textContent=t||''; }
+function e2Task(){ const R=E2.run, pp=R.per[R.cur], task=pp.q[pp.i], t=E2.topic, it=task.it, tok=++E2.tok; R.tries=0; R.task=task; R.answered=false; R.check=null;
+  e2Status(''); $('#e2Prog').textContent=`${pp.i+1} / ${pp.q.length}`; $('#e2Main').className='e2main k-'+task.k; $('#e2Skip').hidden=false;
+  $('#e2Mic').hidden=true; $('#e2Live').hidden=true;
+  const pool=t.words.map(x=>x.w); const after=fn=>{ R.prompt=fn; return e2Speak(fn); }; const after2=fn=>after(fn).then(()=>{ if(tok===E2.tok) return new Promise(r=>setTimeout(r,250)); return Promise.reject(); });
+  if(task.k==='learn'||task.k==='learnS'){ const txt=it.w||it.s;
+    e2Bubble('Listen and repeat!','Paklausyk ir pakartok','happy'); $('#e2Main').innerHTML=`${e2Art(it.p,'big')}<div class="e2word"><b>${e2Esc(txt)}</b><span>${e2Esc(it.lt)}</span></div>`; R.say=txt;
+    after2(txt).then(()=>e2VoiceTask(h=>it.w?e2MatchW(h,it.w,pool):e2MatchS(h,it.s),{learn:1})).catch(()=>{}); }
+  else if(task.k==='say'){ e2Bubble(e2Q(t.ask||'What is this?'),t.askLt||'Kas tai? Pasakyk angliškai','think');
+    $('#e2Main').innerHTML=`${e2Art(it.p,'big')}<div class="e2word"><span>${e2Esc(it.lt)}</span></div>`; R.say=it.w;
+    after2(e2Q(t.ask||'What is this?')).then(()=>e2VoiceTask(h=>e2MatchW(h,it.w,pool))).catch(()=>{}); }
+  else if(task.k==='rep'){ e2Bubble('Say it after me!','Pakartok sakinį','happy'); $('#e2Main').innerHTML=`${e2Art(it.p,'big')}<div class="e2word"><b>${e2Esc(it.s)}</b><span>${e2Esc(it.lt)}</span></div>`; R.say=it.s;
+    after2(it.s).then(()=>e2VoiceTask(h=>e2MatchS(h,it.s))).catch(()=>{}); }
+  else if(task.k==='talk'){ const P=e2P(R.cur); let ok=it.ok||[], art='', w='';
+    if(it.item){ const x=rnd(t.words); w=x.w; ok=[w]; art=e2Art(x.p,'big'); }
+    if(it.okTopic) ok=pool.concat(EN_NUM.slice(5,13));
+    if(it.count){ const n=1+Math.floor(Math.random()*6); w=EN_NUM[n]; ok=[w]; art=`<div class="e2art big e2emo"><span class="e2many">${'🍎'.repeat(n)}</span></div>`; }
+    const model=it.m.replace('{name}',P?P.name:'').replace('{w}',w); R.say=model;
+    e2Bubble(e2Q(it.q),it.lt,'think'); $('#e2Main').innerHTML=`${art}<div class="e2word"><b>${e2Esc(it.q)}</b><span>${e2Esc(it.lt)}</span></div>`;
+    after2(e2Q(it.q)).then(()=>e2VoiceTask(h=>it.any?enNorm(h).length>0:ok.some(o=>enScore(enCands(h,new Set(o.split(' '))),o)<=.3))).catch(()=>{}); }
+  else if(task.k==='pick'){ const opts=enShuffle([it,...enShuffle(t.words.filter(x=>x.w!==it.w)).slice(0,3)]); R.say=it.w;
+    e2Bubble(e2Q('Find it!'),'Paklausyk ir paliesk paveikslėlį','happy');
+    $('#e2Main').innerHTML=`<div class="e2opts">${opts.map(o=>`<button class="e2opt" data-w="${e2Esc(o.w)}">${e2Art(o.p)}</button>`).join('')}</div>`;
+    after2(e2Q(it.w)).catch(()=>{}); }
+  else if(task.k==='yesno'){ const truth=Math.random()<.5, other=rnd(t.words.filter(x=>x.w!==it.w)), asked=truth?it.w:other.w; R.yes=truth; R.say=it.w;
+    const q=t.yn?t.yn(asked):`Is it “${asked}”?`; e2Bubble(e2Q(q),'Taip ar ne?','think');
+    $('#e2Main').innerHTML=`${e2Art(it.p,'big')}<div class="e2yn"><button class="e2ynb yes" data-v="1">YES 👍</button><button class="e2ynb no" data-v="0">NO 👎</button></div>`;
+    after2(e2Q(q)).catch(()=>{}); }
 }
-function enSayRender(){
-  const S2=EN.say, [w,lt]=S2.list[S2.i], st=S2.state, mode=enMicMode();
-  $('#enSayN').textContent=`${S2.i+1} / ${S2.list.length}`; $('#enSayOk').textContent=`Teisingai: ${S2.ok}`;
-  $('#enSayPic').innerHTML=enPic(w); $('#enSayPic').className='encard'+(st==='ok'?' ok':st==='reveal'?' rev':'');
-  const showWord=st==='ok'||st==='reveal'||st==='self';
-  $('#enSayWord').innerHTML=showWord?`<b>${w}</b><span>${lt}</span>`:`<span class="muted">${mode==='self'?'Pasakyk garsiai angliškai, kas tai, ir paspausk „Patikrinti“':'Paspausk mikrofoną ir pasakyk angliškai, kas tai'}</span>`;
-  const H=$('#enSayHeard'); H.className='enheard'+(st==='ok'?' ok':st==='retry'||st==='reveal'?' bad':'');
-  H.textContent=st==='listen'?(S2.heard?`Girdžiu: ${S2.heard}`:'Klausau…'):st==='ok'?(S2.heard?`Išgirdau: „${S2.heard}“ – puiku!`:'Puiku!'):st==='retry'?(S2.heard?`Išgirdau: „${S2.heard}“. Pabandyk dar kartą.`:'Nieko neišgirdau. Paspausk mikrofoną ir iškart garsiai pasakyk žodį.'):st==='reveal'?'Paklausyk ir pakartok garsiai.':st==='self'?'Ar pasakei teisingai?':S2.msg||(mode==='self'&&EN_PREF!=='self'&&((EN_IOS&&EN_FRAMED)||EN_WEB_DEAD>=2)?EN_DEAD_MSG:'');
-  const m=$('#enMic'); m.classList.toggle('on',st==='listen'); m.querySelector('span').textContent=st==='listen'?'Baigiau':'Sakyk angliškai';
-  $('#enMicRow').hidden=st==='ok'||st==='self'; $('#enSelfRow').hidden=st!=='self'; $('#enNextRow').hidden=!(st==='ok'||st==='reveal');
-  $('#enNextSkip').hidden=st!=='reveal';
-  enPaintMic(); if(st==='self'||st==='ok'||st==='reveal') $('#enCheck').hidden=true;
-}
-function enSayOk(){ const S2=EN.say, w=S2.list[S2.i][0]; S2.state='ok'; if(S2.tries<2) S2.ok++; ENS.said[w]=(ENS.said[w]||0)+1; saveEN(); S.stars+=1; saveS(); paintStars(); beep(true); enSayRender(); setTimeout(()=>{ if(EN.say===S2&&S2.state==='ok') enSay(w); },350); }
-function m_stopping(){ $('#enSayHeard').textContent='Tikrinu…'; enStopListen(); }
-$('#enMic').onclick=()=>{
-  const S2=EN.say; if(!S2) return;
-  if(S2.state==='listen'){ m_stopping(); return; }
-  if(EN_TTS&&EN_TTS.active()) EN_TTS.stop().catch(()=>{});
-  const w=S2.list[S2.i][0]; S2.state='listen'; S2.heard=''; S2.msg=''; enSayRender();
-  enListen((txt)=>{ if(EN.say!==S2||S2.state!=='listen') return false; S2.heard=txt; if(enMatch(txt,w)) return true; enSayRender(); return false; },
-    (txt,reason,alts)=>{ if(EN.say!==S2||S2.state!=='listen') return; if(txt) S2.heard=txt;
-      const all=[txt,...(alts||[])];
-      if(all.some(a=>a&&enMatch(a,w))) return enSayOk();
-      if(!txt&&(reason==='not_granted'||reason==='unavailable')){ if(enMicMode()==='dic'){ EN_DIC=null; } else EN_WEB_DEAD=9; S2.state='ask'; S2.msg=enMicMode()==='self'?'Mikrofonas nepasiekiamas – pasakyk garsiai ir tikrink pats.':'Paspausk mikrofoną dar kartą.'; return enSayRender(); }
-      if(!txt&&(reason==='dismissed'||reason==='hidden'||reason==='rate_limited')){ S2.state='ask'; S2.msg=reason==='rate_limited'?'Palauk truputį ir bandyk vėl.':''; return enSayRender(); }
-      if(!txt&&enMicMode()==='self'){ S2.state='ask'; S2.msg=EN_DEAD_MSG; return enSayRender(); }
-      S2.tries++; beep(false); S2.state=S2.tries>=2?'reveal':'retry'; enSayRender(); if(S2.state==='reveal') enSay(w);
-    });
-};
-$('#enHint').onclick=()=>{ const S2=EN.say; if(!S2) return; const w=S2.list[S2.i][0]; S2.tries=Math.max(S2.tries,1); enSay(w); if(S2.state==='ask'||S2.state==='retry'){ $('#enSayWord').innerHTML=`<b>${w}</b><span>${S2.list[S2.i][1]}</span>`; } };
-$('#enCheck').onclick=()=>{ const S2=EN.say; S2.state='self'; enSayRender(); enSay(S2.list[S2.i][0]); };
-$('#enSelfOk').onclick=()=>enSayOk();
-$('#enSelfNo').onclick=()=>{ const S2=EN.say; S2.tries=2; S2.state='reveal'; beep(false); enSayRender(); enSay(S2.list[S2.i][0]); };
-$('#enSelfToggle').onclick=()=>{ if(enMicMode()!=='self') EN_PREF='self'; else { EN_PREF='mic'; EN_WEB_DEAD=0; } enStopListen(); if(EN.say&&EN.say.state==='listen') EN.say.state='ask'; enSayRender(); };
-function enSayNext(){ const S2=EN.say; S2.i++; S2.tries=0; S2.heard=''; S2.msg=''; S2.state='ask';
-  if(S2.i>=S2.list.length){ S2.done=true; S2.i=S2.list.length-1; $('#enSayRun').hidden=true; const n=S2.list.length; $('#enSayDone').hidden=false;
-    $('#enSayRes').innerHTML=`<div class="big">${S2.ok} / ${n}</div><div>${S2.ok===n?'Visus žodžius pasakei be klaidų!':S2.ok>=n-2?'Puikiai sekasi!':'Gerai! Pasimokyk dar ir pabandyk vėl.'}</div>`; return; }
-  enSayRender(); }
-$('#enNext').onclick=enSayNext; $('#enNextSkip').onclick=()=>{ EN.say.state='ask'; EN.say.heard=''; enSayRender(); };
-$('#enSayAgain').onclick=enSayStart;
-/* Surask */
-function enFindStart(){ EN.find={list:enShuffle(enTopic().words.map(x=>x[0])),i:0,ok:0,miss:0,done:false}; $('#enFindDone').hidden=true; $('#enFindRun').hidden=false; enFindNew(); }
-function enFindNew(){ const F=EN.find, w=F.list[F.i], others=enShuffle(enTopic().words.map(x=>x[0]).filter(x=>x!==w)).slice(0,3); F.opts=enShuffle([w,...others]); F.miss=0; F.lock=false; enFindRender(); setTimeout(()=>{ if(EN.find===F&&EN.mode==='find'&&!$('#scr-en2').hidden) enSay(w); },250); }
-function enFindRender(){ const F=EN.find; $('#enFindN').textContent=`${F.i+1} / ${F.list.length}`; $('#enFindOk').textContent=`Teisingai: ${F.ok}`; $('#enFindFb').className='fb'; $('#enFindFb').textContent=enCanSpeak()?'Paklausyk žodžio ir paliesk tinkamą paveikslėlį.':'';
-  $('#enFindWord').textContent=enCanSpeak()?'':F.list[F.i]; $('#enFindWord').hidden=enCanSpeak();
-  $('#enOpts').innerHTML=F.opts.map(o=>`<button data-w="${o}">${enPic(o)}</button>`).join(''); }
-$('#enFindPlay').onclick=()=>{ const F=EN.find; if(F) enSay(F.list[F.i]); };
-$('#enOpts').onclick=e=>{ const b=e.target.closest('button'), F=EN.find; if(!b||!F||F.lock) return; const w=F.list[F.i], fb=$('#enFindFb');
-  if(b.dataset.w===w){ F.lock=true; if(!F.miss) F.ok++; b.classList.add('ok'); beep(true); fb.className='fb ok'; fb.innerHTML=`<b>${w}</b> – ${enTopic().words.find(x=>x[0]===w)[1]}`; enSay(w);
-    setTimeout(()=>{ if(EN.find!==F) return; F.i++; if(F.i>=F.list.length){ F.done=true; $('#enFindRun').hidden=true; $('#enFindDone').hidden=false; $('#enFindRes').innerHTML=`<div class="big">${F.ok} / ${F.list.length}</div><div>${F.ok===F.list.length?'Visus atpažinai iš pirmo karto!':'Gerai! Pabandyk dar kartą.'}</div>`; } else enFindNew(); },1500); }
-  else { F.miss++; b.classList.add('bad'); b.disabled=true; beep(false); fb.className='fb bad'; fb.textContent=`Ne, čia ${b.dataset.w}. Paklausyk dar kartą.`; setTimeout(()=>{ if(EN.find===F&&!F.lock) enSay(w); },500); } };
-$('#enFindAgain').onclick=enFindStart;
+$('#e2Rep').onclick=()=>{ const R=E2.run; if(!R||!R.task||R.answered) return; const k=R.task.k, voice=['learn','learnS','say','rep','talk'].includes(k); const tok=++E2.tok; enStopListen(); $('#e2Live').hidden=true;
+  e2Speak(R.prompt||R.say).then(()=>{ if(voice&&tok===E2.tok&&R===E2.run&&!R.answered&&R.check) setTimeout(()=>{ if(tok===E2.tok) e2VoiceTask(R.check); },250); }); };
+$('#e2Skip').onclick=()=>{ const R=E2.run; if(!R) return; e2Clear(); e2Done('skip'); };
+/* balsas: automatinis klausymas */
+function e2Hear(check,done){
+  const mode=enMicMode(); let fin=false, heard='', last=0, eng=()=>{}, clean=()=>{}; const t0=Date.now(), sil=(E2S.set.sil||6)*1000;
+  const ctl={stop:()=>end('stopped')}; EN_LST=ctl;
+  const end=r=>{ if(fin) return; fin=true; clearInterval(tk); try{ clean(); }catch(e){} if(EN_LST===ctl) EN_LST=null; done(r,heard); };
+  const got=txt=>{ if(!txt||fin) return; heard=txt; last=Date.now(); e2Status('Girdžiu: '+txt); if(check(txt)) end('ok'); };
+  const tk=setInterval(()=>{ const n=Date.now(); if(heard&&n-last>1500) end('wrong'); else if(!heard&&n-t0>sil) end('silent'); },250);
+  if(mode==='dic'){ const D=EN_DIC, offs=[]; let fl='';
+    clean=()=>{ offs.forEach(f=>{ try{ f(); }catch(e){} }); if(D.active()) D.stop().catch(()=>{}); };
+    offs.push(D.onPartial(({text})=>got((fl+' '+(text||'')).trim())));
+    offs.push(D.onFinal(({text})=>{ fl=(fl+text).trim(); got(fl); }));
+    offs.push(D.onState(({state})=>{ if(state==='idle'&&!fin) end(heard?(check(heard)?'ok':'wrong'):'silent'); }));
+    D.start({language:'en'}).catch(e=>end(e&&e.code==='not_granted'?'denied':e&&e.code==='dismissed'?'needtap':'error'));
+    return ctl; }
+  let r; try{ r=new EN_SR(); }catch(e){ end('error'); return ctl; }
+  r.lang='en-US'; r.interimResults=true; r.continuous=true; r.maxAlternatives=5; let err='';
+  clean=()=>{ r.onresult=r.onerror=r.onend=null; try{ r.abort(); }catch(e){} };
+  r.onresult=ev=>{ const all=[...ev.results], alts=[all.map(x=>x[0].transcript).join(' ')]; all.forEach(x=>[...x].forEach(a=>alts.push(a.transcript))); got(alts.find(a=>a&&check(a))||alts[0]); };
+  r.onerror=ev=>{ err=ev.error||''; };
+  r.onend=()=>{ if(fin) return; if(err==='not-allowed'||err==='service-not-allowed') return end(Date.now()-t0<800?'needtap':'denied');
+    if(heard) return end(check(heard)?'ok':'wrong'); if(Date.now()-t0<sil-600){ try{ r.start(); return; }catch(e){} } end('silent'); };
+  try{ r.start(); }catch(e){ end('needtap'); }
+  return ctl; }
+let E2_TAPS=0;
+function e2VoiceTask(check,o={}){ const R=E2.run; if(!R) return; R.check=check; R.answered=false; const tok=E2.tok;
+  if(enMicMode()==='self'){ e2Status('Pasakyk garsiai…','wait'); $('#e2Mic').hidden=true; e2Later(()=>e2Done('nomic'),4000); return; }
+  $('#e2Mic').hidden=true; $('#e2Live').hidden=false; e2Status('Klausau…','wait');
+  e2Hear(check,(res,h)=>{ $('#e2Live').hidden=true; if(tok!==E2.tok||R!==E2.run) return;
+    if(res==='ok'){ E2_TAPS=0; return e2Done('ok',h); }
+    if(res==='silent') return e2Done('silent');
+    if(res==='needtap'){ if(E2_TAPS++<2){ e2Status('Paspausk mikrofoną ir kalbėk','wait'); const m=$('#e2Mic'); m.hidden=false; m.onclick=()=>{ m.hidden=true; e2VoiceTask(check,o); }; return; } res='denied'; }
+    if(res==='denied'||res==='error'){ if(enMicMode()==='dic') EN_DIC=null; else EN_WEB_DEAD=9; enPaintMic(); return e2Done('nomic'); }
+    if(res==='stopped') return;
+    R.tries++; if(R.tries<2){ beep(false); e2Status(`Išgirdau: „${h}“. Pabandyk dar!`,'bad'); e2Later(()=>e2VoiceTask(check,o),1100); } else e2Done('wrong',h); }); }
+/* rezultatas */
+function e2Done(res,h){ const R=E2.run; if(!R||R.answered) return; R.answered=true; enStopListen(); const pp=R.per[R.cur], it=R.task.it, pr=e2Prog(R.cur), key=it.w||it.s||it.q;
+  $('#e2Skip').hidden=true; let wait=1500;
+  if(res==='ok'){ pp.ok++; pr.stars++; S.stars+=1; saveS(); paintStars(); pr.words[key]=Math.min(3,(pr.words[key]||0)+1); beep(true); e2Bubble(rnd(['Super!','Great!','Well done!','Yes!','Excellent!']),'Puiku!','wow'); e2Status(h?`Išgirdau: „${h}“ ⭐`:'Teisingai! ⭐','ok'); }
+  else if(res==='silent'||res==='nomic'){ pp.ok++; pp.sil++; e2Bubble('Listen!','Klausyk ir pakartok','happy'); e2Status(res==='silent'?'Neišgirdau – užskaitau. Klausyk:':'Atsakymas:','wait'); wait=2400; e2Speak(R.say); e2Reveal(); }
+  else if(res==='wrong'){ pr.words[key]=Math.max(0,(pr.words[key]||0)-1); beep(false); e2Bubble('Listen!','Teisingai sakoma taip','think'); e2Status(`Teisingai: ${R.say}`,'bad'); wait=2600; e2Speak(R.say); e2Reveal(); }
+  else { wait=600; }
+  pp.n++; pp.i++; e2Save(); e2PaintBar(); e2Later(e2NextTurn,wait); }
+function e2Reveal(){ const R=E2.run; if(!R||!R.task) return; const k=R.task.k, it=R.task.it;
+  if(k==='say'||k==='talk'){ const w=$('#e2Main .e2word'); if(w) w.innerHTML=`<b>${e2Esc(R.say)}</b><span>${e2Esc(k==='talk'?it.lt:it.lt)}</span>`; }
+  if(k==='pick') document.querySelectorAll('#e2Main .e2opt').forEach(b=>b.classList.toggle('ok',b.dataset.w===it.w));
+  if(k==='yesno') document.querySelectorAll('#e2Main .e2ynb').forEach(b=>b.classList.toggle('ok',(b.dataset.v==='1')===R.yes)); }
+$('#e2Main').onclick=e=>{ const R=E2.run; if(!R||R.answered) return; const o=e.target.closest('.e2opt'), y=e.target.closest('.e2ynb'), it=R.task&&R.task.it;
+  if(o){ if(o.dataset.w===it.w){ o.classList.add('ok'); e2Speak(it.w); if(R.tries) e2DoneSoft(); else e2Done('ok'); } else { o.classList.add('bad'); o.disabled=true; beep(false); R.tries++; if(R.tries>=2) e2Done('wrong'); else { e2Status('Ne tas. Klausyk dar kartą!','bad'); e2Speak(it.w); } } }
+  if(y){ const v=y.dataset.v==='1'; if(v===R.yes){ y.classList.add('ok'); e2Speak(R.yes?'Yes, it is!':'No, it is not!'); e2Done('ok'); } else { y.classList.add('bad'); e2Speak(R.yes?'Yes, it is!':'No, it is not!'); e2Done('wrong'); } } };
+function e2DoneSoft(){ const R=E2.run; R.answered=true; const pp=R.per[R.cur]; beep(true); e2Bubble('Good!','Šį kartą pavyko!','happy'); e2Status('Teisingai!','ok'); pp.n++; pp.i++; e2Save(); e2PaintBar(); $('#e2Skip').hidden=true; e2Later(e2NextTurn,1400); }
+function e2Finish(){ const R=E2.run, t=E2.topic; let rows='';
+  Object.entries(R.per).forEach(([pid,pp])=>{ const P=e2P(pid); if(!P||!pp.n) return; const pr=e2Prog(pid); pr.steps[t.id]=pr.steps[t.id]||{}; pr.steps[t.id][R.st]=true; let med='';
+    if(R.st==='test'){ const m=pp.ok>=10?3:pp.ok>=8?2:pp.ok>=6?1:0; if(m>(pr.medals[t.id]||0)) pr.medals[t.id]=m; med=m?['','🥉','🥈','🥇'][m]+' '+['','Bronza','Sidabras','Auksas'][m]:'Pabandyk dar – medaliui reikia 6'; }
+    rows+=`<div class="e2res" style="--pc:${e2Col(P)}">${e2Av(P.avatar)}<b>${e2Esc(P.name)}</b><span>⭐ ${pp.ok} / ${pp.n}</span>${med?`<em>${med}</em>`:''}</div>`; });
+  e2Save(); E2.run=null; $('#e2DoneOlly').innerHTML=e2Olly('wow'); $('#e2DoneRows').innerHTML=rows||'<p class="muted">Šį kartą nieko nepadaryta.</p>';
+  const idx=E2_ST.findIndex(s=>s[0]===R.st); let nx=E2_ST.slice(idx+1).find(s=>!s[3]); $('#e2Next').hidden=!nx; if(nx){ $('#e2Next').textContent=`Toliau: ${nx[1]}`; $('#e2Next').dataset.k=nx[0]; }
+  e2Show('done'); beep(true); e2Speak(R.st==='test'?'Well done! Here are your medals!':'Well done!'); }
+$('#e2Next').onclick=e=>e2Start(e.target.dataset.k);
+$('#e2DoneBack').onclick=()=>{ e2RenderTopic(); e2Show('topic'); };
 
 /* Mikrofono patikra – diagnostika, kad žinotume, ką įrenginys leidžia */
 function enDLog(t){ const L=$('#enDiagLog'); L.textContent+=t+'\n'; L.scrollTop=1e6; }
